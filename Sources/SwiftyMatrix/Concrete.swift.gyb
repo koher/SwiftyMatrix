@@ -1,0 +1,63 @@
+% dimensions = ['2', '3', '4']
+% scalar_types = ['Float', 'Double']
+% scalar_type_to_symbol = {'Float': 'f', 'Double': ''}
+% scalar_type_to_simd_type_prefix = {'Float': 'matrix_float', 'Double': 'matrix_double'}
+% scalar_type_to_simd_identity_prefix = {'Float': 'matrix_identity_float', 'Double': 'matrix_identity_double'}
+%
+#if canImport(simd)
+@_exported import simd
+#endif
+%
+% for num_rows in dimensions:
+%   for num_cols in dimensions:
+%     if num_rows == num_cols:
+%       matrix_type = 'SquareMatrix'
+%     else:
+%       matrix_type = 'Matrix'
+%     end
+%     for scalar_type in scalar_types:
+%       symbol = scalar_type_to_symbol[scalar_type]
+%       simd_type_prefix = scalar_type_to_simd_type_prefix[scalar_type]
+%       simd_identity_prefix = scalar_type_to_simd_identity_prefix[scalar_type]
+
+#if canImport(simd)
+public typealias Matrix${num_rows}x${num_cols}${symbol} = ${simd_type_prefix}${num_rows}x${num_cols}
+
+extension Matrix${num_rows}x${num_cols}${symbol} : ${matrix_type} {
+    public typealias Scalar = ${scalar_type}
+    public typealias Transpose = Matrix${num_cols}x${num_rows}${symbol}
+
+    public var rowCount: Int {
+        return ${num_rows}
+    }
+
+    public var columnCount: Int {
+        return ${num_cols}
+    }
+
+    public static var zero: Matrix${num_rows}x${num_cols}${symbol} {
+        return ${simd_type_prefix}${num_rows}x${num_cols}()
+    }
+
+    public static func /(lhs: Matrix${num_rows}x${num_cols}${symbol}, rhs: ${scalar_type}) -> Matrix${num_rows}x${num_cols}${symbol} {
+        return lhs * (1.0 / rhs)
+    }
+
+    public static prefix func +(value: Matrix${num_rows}x${num_cols}${symbol}) -> Matrix${num_rows}x${num_cols}${symbol} {
+        return value
+    }
+
+    public static prefix func -(value: Matrix${num_rows}x${num_cols}${symbol}) -> Matrix${num_rows}x${num_cols}${symbol} {
+        return value * -1
+    }
+%       if matrix_type == 'SquareMatrix':
+
+    public static var identity: Matrix${num_rows}x${num_cols}${symbol} {
+        return ${simd_identity_prefix}${num_rows}x${num_cols}
+    }
+%       end
+}
+#endif
+%     end
+%   end
+% end

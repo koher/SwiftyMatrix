@@ -1,6 +1,6 @@
 import SwiftyVector
 
-public protocol Matrix {
+public protocol Matrix: Equatable, CustomStringConvertible, CustomDebugStringConvertible {
     associatedtype Scalar
     associatedtype RowVector : Vector
     associatedtype ColumnVector : Vector

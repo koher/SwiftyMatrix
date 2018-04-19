@@ -40,6 +40,35 @@ extension Matrix2x2f : SquareMatrix {
     public static var identity: Matrix2x2f {
         return matrix_identity_float2x2
     }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix2x2f : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector2f...) {
+        precondition(elements.count == 2)
+        
+        self.init(
+            [elements[0].x, elements[1].x],
+            [elements[0].y, elements[1].y]
+        )
+    }
 }
 #endif
 
@@ -79,6 +108,35 @@ extension Matrix2x2 : SquareMatrix {
     public static var identity: Matrix2x2 {
         return matrix_identity_double2x2
     }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix2x2 : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector2...) {
+        precondition(elements.count == 2)
+        
+        self.init(
+            [elements[0].x, elements[1].x],
+            [elements[0].y, elements[1].y]
+        )
+    }
 }
 #endif
 
@@ -113,6 +171,36 @@ extension Matrix2x3f : Matrix {
 
     public static prefix func -(value: Matrix2x3f) -> Matrix2x3f {
         return value * -1
+    }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description), \(columns.2.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description), \(columns.2.y.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription), \(columns.2.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription), \(columns.2.y.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix2x3f : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector3f...) {
+        precondition(elements.count == 2)
+        
+        self.init(
+            [elements[0].x, elements[1].x],
+            [elements[0].y, elements[1].y],
+            [elements[0].z, elements[1].z]
+        )
     }
 }
 #endif
@@ -149,6 +237,36 @@ extension Matrix2x3 : Matrix {
     public static prefix func -(value: Matrix2x3) -> Matrix2x3 {
         return value * -1
     }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description), \(columns.2.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description), \(columns.2.y.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription), \(columns.2.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription), \(columns.2.y.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix2x3 : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector3...) {
+        precondition(elements.count == 2)
+        
+        self.init(
+            [elements[0].x, elements[1].x],
+            [elements[0].y, elements[1].y],
+            [elements[0].z, elements[1].z]
+        )
+    }
 }
 #endif
 
@@ -183,6 +301,37 @@ extension Matrix2x4f : Matrix {
 
     public static prefix func -(value: Matrix2x4f) -> Matrix2x4f {
         return value * -1
+    }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description), \(columns.2.x.description), \(columns.3.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description), \(columns.2.y.description), \(columns.3.y.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription), \(columns.2.x.debugDescription), \(columns.3.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription), \(columns.2.y.debugDescription), \(columns.3.y.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix2x4f : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector4f...) {
+        precondition(elements.count == 2)
+        
+        self.init(
+            [elements[0].x, elements[1].x],
+            [elements[0].y, elements[1].y],
+            [elements[0].z, elements[1].z],
+            [elements[0].w, elements[1].w]
+        )
     }
 }
 #endif
@@ -219,6 +368,37 @@ extension Matrix2x4 : Matrix {
     public static prefix func -(value: Matrix2x4) -> Matrix2x4 {
         return value * -1
     }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description), \(columns.2.x.description), \(columns.3.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description), \(columns.2.y.description), \(columns.3.y.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription), \(columns.2.x.debugDescription), \(columns.3.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription), \(columns.2.y.debugDescription), \(columns.3.y.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix2x4 : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector4...) {
+        precondition(elements.count == 2)
+        
+        self.init(
+            [elements[0].x, elements[1].x],
+            [elements[0].y, elements[1].y],
+            [elements[0].z, elements[1].z],
+            [elements[0].w, elements[1].w]
+        )
+    }
 }
 #endif
 
@@ -254,6 +434,37 @@ extension Matrix3x2f : Matrix {
     public static prefix func -(value: Matrix3x2f) -> Matrix3x2f {
         return value * -1
     }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description)],
+            [\(columns.0.z.description), \(columns.1.z.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription)],
+            [\(columns.0.z.debugDescription), \(columns.1.z.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix3x2f : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector2f...) {
+        precondition(elements.count == 3)
+        
+        self.init(
+            [elements[0].x, elements[1].x, elements[2].x],
+            [elements[0].y, elements[1].y, elements[2].y]
+        )
+    }
 }
 #endif
 
@@ -288,6 +499,37 @@ extension Matrix3x2 : Matrix {
 
     public static prefix func -(value: Matrix3x2) -> Matrix3x2 {
         return value * -1
+    }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description)],
+            [\(columns.0.z.description), \(columns.1.z.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription)],
+            [\(columns.0.z.debugDescription), \(columns.1.z.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix3x2 : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector2...) {
+        precondition(elements.count == 3)
+        
+        self.init(
+            [elements[0].x, elements[1].x, elements[2].x],
+            [elements[0].y, elements[1].y, elements[2].y]
+        )
     }
 }
 #endif
@@ -328,6 +570,38 @@ extension Matrix3x3f : SquareMatrix {
     public static var identity: Matrix3x3f {
         return matrix_identity_float3x3
     }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description), \(columns.2.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description), \(columns.2.y.description)],
+            [\(columns.0.z.description), \(columns.1.z.description), \(columns.2.z.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription), \(columns.2.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription), \(columns.2.y.debugDescription)],
+            [\(columns.0.z.debugDescription), \(columns.1.z.debugDescription), \(columns.2.z.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix3x3f : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector3f...) {
+        precondition(elements.count == 3)
+        
+        self.init(
+            [elements[0].x, elements[1].x, elements[2].x],
+            [elements[0].y, elements[1].y, elements[2].y],
+            [elements[0].z, elements[1].z, elements[2].z]
+        )
+    }
 }
 #endif
 
@@ -367,6 +641,38 @@ extension Matrix3x3 : SquareMatrix {
     public static var identity: Matrix3x3 {
         return matrix_identity_double3x3
     }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description), \(columns.2.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description), \(columns.2.y.description)],
+            [\(columns.0.z.description), \(columns.1.z.description), \(columns.2.z.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription), \(columns.2.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription), \(columns.2.y.debugDescription)],
+            [\(columns.0.z.debugDescription), \(columns.1.z.debugDescription), \(columns.2.z.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix3x3 : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector3...) {
+        precondition(elements.count == 3)
+        
+        self.init(
+            [elements[0].x, elements[1].x, elements[2].x],
+            [elements[0].y, elements[1].y, elements[2].y],
+            [elements[0].z, elements[1].z, elements[2].z]
+        )
+    }
 }
 #endif
 
@@ -401,6 +707,39 @@ extension Matrix3x4f : Matrix {
 
     public static prefix func -(value: Matrix3x4f) -> Matrix3x4f {
         return value * -1
+    }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description), \(columns.2.x.description), \(columns.3.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description), \(columns.2.y.description), \(columns.3.y.description)],
+            [\(columns.0.z.description), \(columns.1.z.description), \(columns.2.z.description), \(columns.3.z.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription), \(columns.2.x.debugDescription), \(columns.3.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription), \(columns.2.y.debugDescription), \(columns.3.y.debugDescription)],
+            [\(columns.0.z.debugDescription), \(columns.1.z.debugDescription), \(columns.2.z.debugDescription), \(columns.3.z.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix3x4f : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector4f...) {
+        precondition(elements.count == 3)
+        
+        self.init(
+            [elements[0].x, elements[1].x, elements[2].x],
+            [elements[0].y, elements[1].y, elements[2].y],
+            [elements[0].z, elements[1].z, elements[2].z],
+            [elements[0].w, elements[1].w, elements[2].w]
+        )
     }
 }
 #endif
@@ -437,6 +776,39 @@ extension Matrix3x4 : Matrix {
     public static prefix func -(value: Matrix3x4) -> Matrix3x4 {
         return value * -1
     }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description), \(columns.2.x.description), \(columns.3.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description), \(columns.2.y.description), \(columns.3.y.description)],
+            [\(columns.0.z.description), \(columns.1.z.description), \(columns.2.z.description), \(columns.3.z.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription), \(columns.2.x.debugDescription), \(columns.3.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription), \(columns.2.y.debugDescription), \(columns.3.y.debugDescription)],
+            [\(columns.0.z.debugDescription), \(columns.1.z.debugDescription), \(columns.2.z.debugDescription), \(columns.3.z.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix3x4 : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector4...) {
+        precondition(elements.count == 3)
+        
+        self.init(
+            [elements[0].x, elements[1].x, elements[2].x],
+            [elements[0].y, elements[1].y, elements[2].y],
+            [elements[0].z, elements[1].z, elements[2].z],
+            [elements[0].w, elements[1].w, elements[2].w]
+        )
+    }
 }
 #endif
 
@@ -471,6 +843,39 @@ extension Matrix4x2f : Matrix {
 
     public static prefix func -(value: Matrix4x2f) -> Matrix4x2f {
         return value * -1
+    }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description)],
+            [\(columns.0.z.description), \(columns.1.z.description)],
+            [\(columns.0.w.description), \(columns.1.w.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription)],
+            [\(columns.0.z.debugDescription), \(columns.1.z.debugDescription)],
+            [\(columns.0.w.debugDescription), \(columns.1.w.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix4x2f : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector2f...) {
+        precondition(elements.count == 4)
+        
+        self.init(
+            [elements[0].x, elements[1].x, elements[2].x, elements[3].x],
+            [elements[0].y, elements[1].y, elements[2].y, elements[3].y]
+        )
     }
 }
 #endif
@@ -507,6 +912,39 @@ extension Matrix4x2 : Matrix {
     public static prefix func -(value: Matrix4x2) -> Matrix4x2 {
         return value * -1
     }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description)],
+            [\(columns.0.z.description), \(columns.1.z.description)],
+            [\(columns.0.w.description), \(columns.1.w.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription)],
+            [\(columns.0.z.debugDescription), \(columns.1.z.debugDescription)],
+            [\(columns.0.w.debugDescription), \(columns.1.w.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix4x2 : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector2...) {
+        precondition(elements.count == 4)
+        
+        self.init(
+            [elements[0].x, elements[1].x, elements[2].x, elements[3].x],
+            [elements[0].y, elements[1].y, elements[2].y, elements[3].y]
+        )
+    }
 }
 #endif
 
@@ -542,6 +980,40 @@ extension Matrix4x3f : Matrix {
     public static prefix func -(value: Matrix4x3f) -> Matrix4x3f {
         return value * -1
     }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description), \(columns.2.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description), \(columns.2.y.description)],
+            [\(columns.0.z.description), \(columns.1.z.description), \(columns.2.z.description)],
+            [\(columns.0.w.description), \(columns.1.w.description), \(columns.2.w.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription), \(columns.2.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription), \(columns.2.y.debugDescription)],
+            [\(columns.0.z.debugDescription), \(columns.1.z.debugDescription), \(columns.2.z.debugDescription)],
+            [\(columns.0.w.debugDescription), \(columns.1.w.debugDescription), \(columns.2.w.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix4x3f : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector3f...) {
+        precondition(elements.count == 4)
+        
+        self.init(
+            [elements[0].x, elements[1].x, elements[2].x, elements[3].x],
+            [elements[0].y, elements[1].y, elements[2].y, elements[3].y],
+            [elements[0].z, elements[1].z, elements[2].z, elements[3].z]
+        )
+    }
 }
 #endif
 
@@ -576,6 +1048,40 @@ extension Matrix4x3 : Matrix {
 
     public static prefix func -(value: Matrix4x3) -> Matrix4x3 {
         return value * -1
+    }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description), \(columns.2.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description), \(columns.2.y.description)],
+            [\(columns.0.z.description), \(columns.1.z.description), \(columns.2.z.description)],
+            [\(columns.0.w.description), \(columns.1.w.description), \(columns.2.w.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription), \(columns.2.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription), \(columns.2.y.debugDescription)],
+            [\(columns.0.z.debugDescription), \(columns.1.z.debugDescription), \(columns.2.z.debugDescription)],
+            [\(columns.0.w.debugDescription), \(columns.1.w.debugDescription), \(columns.2.w.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix4x3 : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector3...) {
+        precondition(elements.count == 4)
+        
+        self.init(
+            [elements[0].x, elements[1].x, elements[2].x, elements[3].x],
+            [elements[0].y, elements[1].y, elements[2].y, elements[3].y],
+            [elements[0].z, elements[1].z, elements[2].z, elements[3].z]
+        )
     }
 }
 #endif
@@ -616,6 +1122,41 @@ extension Matrix4x4f : SquareMatrix {
     public static var identity: Matrix4x4f {
         return matrix_identity_float4x4
     }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description), \(columns.2.x.description), \(columns.3.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description), \(columns.2.y.description), \(columns.3.y.description)],
+            [\(columns.0.z.description), \(columns.1.z.description), \(columns.2.z.description), \(columns.3.z.description)],
+            [\(columns.0.w.description), \(columns.1.w.description), \(columns.2.w.description), \(columns.3.w.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription), \(columns.2.x.debugDescription), \(columns.3.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription), \(columns.2.y.debugDescription), \(columns.3.y.debugDescription)],
+            [\(columns.0.z.debugDescription), \(columns.1.z.debugDescription), \(columns.2.z.debugDescription), \(columns.3.z.debugDescription)],
+            [\(columns.0.w.debugDescription), \(columns.1.w.debugDescription), \(columns.2.w.debugDescription), \(columns.3.w.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix4x4f : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector4f...) {
+        precondition(elements.count == 4)
+        
+        self.init(
+            [elements[0].x, elements[1].x, elements[2].x, elements[3].x],
+            [elements[0].y, elements[1].y, elements[2].y, elements[3].y],
+            [elements[0].z, elements[1].z, elements[2].z, elements[3].z],
+            [elements[0].w, elements[1].w, elements[2].w, elements[3].w]
+        )
+    }
 }
 #endif
 
@@ -654,6 +1195,41 @@ extension Matrix4x4 : SquareMatrix {
 
     public static var identity: Matrix4x4 {
         return matrix_identity_double4x4
+    }
+
+    public var description: String {
+        return """
+        [
+            [\(columns.0.x.description), \(columns.1.x.description), \(columns.2.x.description), \(columns.3.x.description)],
+            [\(columns.0.y.description), \(columns.1.y.description), \(columns.2.y.description), \(columns.3.y.description)],
+            [\(columns.0.z.description), \(columns.1.z.description), \(columns.2.z.description), \(columns.3.z.description)],
+            [\(columns.0.w.description), \(columns.1.w.description), \(columns.2.w.description), \(columns.3.w.description)],
+        ]
+        """
+    }
+
+    public var debugDescription: String {
+        return """
+        [
+            [\(columns.0.x.debugDescription), \(columns.1.x.debugDescription), \(columns.2.x.debugDescription), \(columns.3.x.debugDescription)],
+            [\(columns.0.y.debugDescription), \(columns.1.y.debugDescription), \(columns.2.y.debugDescription), \(columns.3.y.debugDescription)],
+            [\(columns.0.z.debugDescription), \(columns.1.z.debugDescription), \(columns.2.z.debugDescription), \(columns.3.z.debugDescription)],
+            [\(columns.0.w.debugDescription), \(columns.1.w.debugDescription), \(columns.2.w.debugDescription), \(columns.3.w.debugDescription)],
+        ]
+        """
+    }
+}
+
+extension Matrix4x4 : ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Vector4...) {
+        precondition(elements.count == 4)
+        
+        self.init(
+            [elements[0].x, elements[1].x, elements[2].x, elements[3].x],
+            [elements[0].y, elements[1].y, elements[2].y, elements[3].y],
+            [elements[0].z, elements[1].z, elements[2].z, elements[3].z],
+            [elements[0].w, elements[1].w, elements[2].w, elements[3].w]
+        )
     }
 }
 #endif

@@ -1,0 +1,1203 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D6E94EB120888EB00095B023 /* SwiftyMatrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E94EA720888EB00095B023 /* SwiftyMatrix.framework */; };
+		D6E94EDF20888FA30095B023 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94ED820888FA20095B023 /* XCTestManifests.swift */; };
+		D6E94EE020888FA30095B023 /* SwiftyMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94ED920888FA20095B023 /* SwiftyMatrixTests.swift */; };
+		D6E94EE120888FA30095B023 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EDA20888FA20095B023 /* Utils.swift */; };
+		D6E94EE220888FA30095B023 /* ConcreteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EDB20888FA20095B023 /* ConcreteTests.swift */; };
+		D6E94EE420888FA30095B023 /* TransformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EDD20888FA20095B023 /* TransformTests.swift */; };
+		D6E94EE520888FD00095B023 /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC420888F830095B023 /* CoreGraphics.swift */; };
+		D6E94EE620888FD00095B023 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC520888F830095B023 /* Transform.swift */; };
+		D6E94EE720888FD00095B023 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC620888F830095B023 /* Matrix.swift */; };
+		D6E94EE820888FD00095B023 /* Concrete.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC720888F830095B023 /* Concrete.swift */; };
+		D6E94EE920888FD00095B023 /* SquareMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC920888F830095B023 /* SquareMatrix.swift */; };
+		D6E94EEA20888FD00095B023 /* SwiftyMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = D6E94ECA20888F830095B023 /* SwiftyMatrix.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6E94EFC208893770095B023 /* SwiftyMatrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E94EF3208893760095B023 /* SwiftyMatrix.framework */; };
+		D6E94F18208893B70095B023 /* SwiftyMatrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E94F0F208893B70095B023 /* SwiftyMatrix.framework */; };
+		D6E94F33208895490095B023 /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC420888F830095B023 /* CoreGraphics.swift */; };
+		D6E94F34208895490095B023 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC520888F830095B023 /* Transform.swift */; };
+		D6E94F35208895490095B023 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC620888F830095B023 /* Matrix.swift */; };
+		D6E94F36208895490095B023 /* Concrete.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC720888F830095B023 /* Concrete.swift */; };
+		D6E94F37208895490095B023 /* SquareMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC920888F830095B023 /* SquareMatrix.swift */; };
+		D6E94F382088954A0095B023 /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC420888F830095B023 /* CoreGraphics.swift */; };
+		D6E94F392088954A0095B023 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC520888F830095B023 /* Transform.swift */; };
+		D6E94F3A2088954A0095B023 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC620888F830095B023 /* Matrix.swift */; };
+		D6E94F3B2088954A0095B023 /* Concrete.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC720888F830095B023 /* Concrete.swift */; };
+		D6E94F3C2088954A0095B023 /* SquareMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC920888F830095B023 /* SquareMatrix.swift */; };
+		D6E94F3D2088954B0095B023 /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC420888F830095B023 /* CoreGraphics.swift */; };
+		D6E94F3E2088954B0095B023 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC520888F830095B023 /* Transform.swift */; };
+		D6E94F3F2088954B0095B023 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC620888F830095B023 /* Matrix.swift */; };
+		D6E94F402088954B0095B023 /* Concrete.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC720888F830095B023 /* Concrete.swift */; };
+		D6E94F412088954B0095B023 /* SquareMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC920888F830095B023 /* SquareMatrix.swift */; };
+		D6E94F422088954E0095B023 /* SwiftyMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = D6E94ECA20888F830095B023 /* SwiftyMatrix.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6E94F432088954F0095B023 /* SwiftyMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = D6E94ECA20888F830095B023 /* SwiftyMatrix.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6E94F44208895500095B023 /* SwiftyMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = D6E94ECA20888F830095B023 /* SwiftyMatrix.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6E94F452088955E0095B023 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94ED820888FA20095B023 /* XCTestManifests.swift */; };
+		D6E94F462088955E0095B023 /* SwiftyMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94ED920888FA20095B023 /* SwiftyMatrixTests.swift */; };
+		D6E94F472088955E0095B023 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EDA20888FA20095B023 /* Utils.swift */; };
+		D6E94F482088955E0095B023 /* ConcreteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EDB20888FA20095B023 /* ConcreteTests.swift */; };
+		D6E94F492088955E0095B023 /* TransformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EDD20888FA20095B023 /* TransformTests.swift */; };
+		D6E94F4A2088955F0095B023 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94ED820888FA20095B023 /* XCTestManifests.swift */; };
+		D6E94F4B2088955F0095B023 /* SwiftyMatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94ED920888FA20095B023 /* SwiftyMatrixTests.swift */; };
+		D6E94F4C2088955F0095B023 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EDA20888FA20095B023 /* Utils.swift */; };
+		D6E94F4D2088955F0095B023 /* ConcreteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EDB20888FA20095B023 /* ConcreteTests.swift */; };
+		D6E94F4E2088955F0095B023 /* TransformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EDD20888FA20095B023 /* TransformTests.swift */; };
+		D6E94F502088959D0095B023 /* SwiftyVector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E94F4F2088959D0095B023 /* SwiftyVector.framework */; };
+		D6E94F51208895A30095B023 /* SwiftyVector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E94F4F2088959D0095B023 /* SwiftyVector.framework */; };
+		D6E94F53208895B10095B023 /* SwiftyVector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E94F52208895B00095B023 /* SwiftyVector.framework */; };
+		D6E94F54208895B10095B023 /* SwiftyVector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E94F52208895B00095B023 /* SwiftyVector.framework */; };
+		D6E94F56208895C40095B023 /* SwiftyVector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E94F55208895C40095B023 /* SwiftyVector.framework */; };
+		D6E94F57208898E70095B023 /* SwiftyVector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E94EEB208890AC0095B023 /* SwiftyVector.framework */; };
+		D6E94F5820889AFE0095B023 /* SwiftyVector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E94EEB208890AC0095B023 /* SwiftyVector.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D6E94EB220888EB00095B023 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6E94E9E20888EB00095B023 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6E94EA620888EB00095B023;
+			remoteInfo = SwiftyMatrix;
+		};
+		D6E94EFD208893770095B023 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6E94E9E20888EB00095B023 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6E94EF2208893760095B023;
+			remoteInfo = "SwiftyMatrix-macOS";
+		};
+		D6E94F19208893B70095B023 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6E94E9E20888EB00095B023 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6E94F0E208893B70095B023;
+			remoteInfo = "SwiftyMatrix-tvOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D6E94EA720888EB00095B023 /* SwiftyMatrix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyMatrix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6E94EB020888EB00095B023 /* SwiftyMatrixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyMatrixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6E94EC420888F830095B023 /* CoreGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphics.swift; sourceTree = "<group>"; };
+		D6E94EC520888F830095B023 /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		D6E94EC620888F830095B023 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		D6E94EC720888F830095B023 /* Concrete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Concrete.swift; sourceTree = "<group>"; };
+		D6E94EC920888F830095B023 /* SquareMatrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareMatrix.swift; sourceTree = "<group>"; };
+		D6E94ECA20888F830095B023 /* SwiftyMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyMatrix.h; sourceTree = "<group>"; };
+		D6E94ECB20888F830095B023 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6E94ED820888FA20095B023 /* XCTestManifests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		D6E94ED920888FA20095B023 /* SwiftyMatrixTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyMatrixTests.swift; sourceTree = "<group>"; };
+		D6E94EDA20888FA20095B023 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		D6E94EDB20888FA20095B023 /* ConcreteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcreteTests.swift; sourceTree = "<group>"; };
+		D6E94EDC20888FA20095B023 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6E94EDD20888FA20095B023 /* TransformTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformTests.swift; sourceTree = "<group>"; };
+		D6E94EEB208890AC0095B023 /* SwiftyVector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyVector.framework; path = Carthage/Build/iOS/SwiftyVector.framework; sourceTree = "<group>"; };
+		D6E94EF3208893760095B023 /* SwiftyMatrix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyMatrix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6E94EFB208893760095B023 /* SwiftyMatrixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyMatrixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6E94F0F208893B70095B023 /* SwiftyMatrix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyMatrix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6E94F17208893B70095B023 /* SwiftyMatrixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyMatrixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6E94F2B208893CB0095B023 /* SwiftyMatrix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyMatrix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6E94F4F2088959D0095B023 /* SwiftyVector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyVector.framework; path = Carthage/Build/Mac/SwiftyVector.framework; sourceTree = "<group>"; };
+		D6E94F52208895B00095B023 /* SwiftyVector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyVector.framework; path = Carthage/Build/tvOS/SwiftyVector.framework; sourceTree = "<group>"; };
+		D6E94F55208895C40095B023 /* SwiftyVector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyVector.framework; path = Carthage/Build/watchOS/SwiftyVector.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D6E94EA320888EB00095B023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94F57208898E70095B023 /* SwiftyVector.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94EAD20888EB00095B023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94EB120888EB00095B023 /* SwiftyMatrix.framework in Frameworks */,
+				D6E94F5820889AFE0095B023 /* SwiftyVector.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94EEF208893760095B023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94F502088959D0095B023 /* SwiftyVector.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94EF8208893760095B023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94EFC208893770095B023 /* SwiftyMatrix.framework in Frameworks */,
+				D6E94F51208895A30095B023 /* SwiftyVector.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94F0B208893B70095B023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94F53208895B10095B023 /* SwiftyVector.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94F14208893B70095B023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94F18208893B70095B023 /* SwiftyMatrix.framework in Frameworks */,
+				D6E94F54208895B10095B023 /* SwiftyVector.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94F27208893CB0095B023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94F56208895C40095B023 /* SwiftyVector.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D6E94E9D20888EB00095B023 = {
+			isa = PBXGroup;
+			children = (
+				D6E94EEB208890AC0095B023 /* SwiftyVector.framework */,
+				D6E94F4F2088959D0095B023 /* SwiftyVector.framework */,
+				D6E94F52208895B00095B023 /* SwiftyVector.framework */,
+				D6E94F55208895C40095B023 /* SwiftyVector.framework */,
+				D6E94EC120888F830095B023 /* Sources */,
+				D6E94ED520888FA20095B023 /* Tests */,
+				D6E94EA820888EB00095B023 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D6E94EA820888EB00095B023 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6E94EA720888EB00095B023 /* SwiftyMatrix.framework */,
+				D6E94EB020888EB00095B023 /* SwiftyMatrixTests.xctest */,
+				D6E94EF3208893760095B023 /* SwiftyMatrix.framework */,
+				D6E94EFB208893760095B023 /* SwiftyMatrixTests.xctest */,
+				D6E94F0F208893B70095B023 /* SwiftyMatrix.framework */,
+				D6E94F17208893B70095B023 /* SwiftyMatrixTests.xctest */,
+				D6E94F2B208893CB0095B023 /* SwiftyMatrix.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6E94EC120888F830095B023 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D6E94EC220888F830095B023 /* SwiftyMatrix */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D6E94EC220888F830095B023 /* SwiftyMatrix */ = {
+			isa = PBXGroup;
+			children = (
+				D6E94EC420888F830095B023 /* CoreGraphics.swift */,
+				D6E94EC520888F830095B023 /* Transform.swift */,
+				D6E94EC620888F830095B023 /* Matrix.swift */,
+				D6E94EC720888F830095B023 /* Concrete.swift */,
+				D6E94EC920888F830095B023 /* SquareMatrix.swift */,
+				D6E94ECA20888F830095B023 /* SwiftyMatrix.h */,
+				D6E94ECB20888F830095B023 /* Info.plist */,
+			);
+			path = SwiftyMatrix;
+			sourceTree = "<group>";
+		};
+		D6E94ED520888FA20095B023 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D6E94ED720888FA20095B023 /* SwiftyMatrixTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		D6E94ED720888FA20095B023 /* SwiftyMatrixTests */ = {
+			isa = PBXGroup;
+			children = (
+				D6E94ED820888FA20095B023 /* XCTestManifests.swift */,
+				D6E94ED920888FA20095B023 /* SwiftyMatrixTests.swift */,
+				D6E94EDA20888FA20095B023 /* Utils.swift */,
+				D6E94EDB20888FA20095B023 /* ConcreteTests.swift */,
+				D6E94EDC20888FA20095B023 /* Info.plist */,
+				D6E94EDD20888FA20095B023 /* TransformTests.swift */,
+			);
+			path = SwiftyMatrixTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D6E94EA420888EB00095B023 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94EEA20888FD00095B023 /* SwiftyMatrix.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94EF0208893760095B023 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94F422088954E0095B023 /* SwiftyMatrix.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94F0C208893B70095B023 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94F432088954F0095B023 /* SwiftyMatrix.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94F28208893CB0095B023 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94F44208895500095B023 /* SwiftyMatrix.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D6E94EA620888EB00095B023 /* SwiftyMatrix-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6E94EBB20888EB00095B023 /* Build configuration list for PBXNativeTarget "SwiftyMatrix-iOS" */;
+			buildPhases = (
+				D6E94EA220888EB00095B023 /* Sources */,
+				D6E94EA320888EB00095B023 /* Frameworks */,
+				D6E94EA420888EB00095B023 /* Headers */,
+				D6E94EA520888EB00095B023 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftyMatrix-iOS";
+			productName = SwiftyMatrix;
+			productReference = D6E94EA720888EB00095B023 /* SwiftyMatrix.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D6E94EAF20888EB00095B023 /* SwiftyMatrixTests-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6E94EBE20888EB00095B023 /* Build configuration list for PBXNativeTarget "SwiftyMatrixTests-iOS" */;
+			buildPhases = (
+				D6E94EAC20888EB00095B023 /* Sources */,
+				D6E94EAD20888EB00095B023 /* Frameworks */,
+				D6E94EAE20888EB00095B023 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6E94EB320888EB00095B023 /* PBXTargetDependency */,
+			);
+			name = "SwiftyMatrixTests-iOS";
+			productName = SwiftyMatrixTests;
+			productReference = D6E94EB020888EB00095B023 /* SwiftyMatrixTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D6E94EF2208893760095B023 /* SwiftyMatrix-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6E94F08208893770095B023 /* Build configuration list for PBXNativeTarget "SwiftyMatrix-macOS" */;
+			buildPhases = (
+				D6E94EEE208893760095B023 /* Sources */,
+				D6E94EEF208893760095B023 /* Frameworks */,
+				D6E94EF0208893760095B023 /* Headers */,
+				D6E94EF1208893760095B023 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftyMatrix-macOS";
+			productName = "SwiftyMatrix-macOS";
+			productReference = D6E94EF3208893760095B023 /* SwiftyMatrix.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D6E94EFA208893760095B023 /* SwiftyMatrixTests-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6E94F09208893770095B023 /* Build configuration list for PBXNativeTarget "SwiftyMatrixTests-macOS" */;
+			buildPhases = (
+				D6E94EF7208893760095B023 /* Sources */,
+				D6E94EF8208893760095B023 /* Frameworks */,
+				D6E94EF9208893760095B023 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6E94EFE208893770095B023 /* PBXTargetDependency */,
+			);
+			name = "SwiftyMatrixTests-macOS";
+			productName = "SwiftyMatrix-macOSTests";
+			productReference = D6E94EFB208893760095B023 /* SwiftyMatrixTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D6E94F0E208893B70095B023 /* SwiftyMatrix-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6E94F20208893B70095B023 /* Build configuration list for PBXNativeTarget "SwiftyMatrix-tvOS" */;
+			buildPhases = (
+				D6E94F0A208893B70095B023 /* Sources */,
+				D6E94F0B208893B70095B023 /* Frameworks */,
+				D6E94F0C208893B70095B023 /* Headers */,
+				D6E94F0D208893B70095B023 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftyMatrix-tvOS";
+			productName = "SwiftyMatrix-tvOS";
+			productReference = D6E94F0F208893B70095B023 /* SwiftyMatrix.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D6E94F16208893B70095B023 /* SwiftyMatrixTests-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6E94F23208893B70095B023 /* Build configuration list for PBXNativeTarget "SwiftyMatrixTests-tvOS" */;
+			buildPhases = (
+				D6E94F13208893B70095B023 /* Sources */,
+				D6E94F14208893B70095B023 /* Frameworks */,
+				D6E94F15208893B70095B023 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6E94F1A208893B70095B023 /* PBXTargetDependency */,
+			);
+			name = "SwiftyMatrixTests-tvOS";
+			productName = "SwiftyMatrix-tvOSTests";
+			productReference = D6E94F17208893B70095B023 /* SwiftyMatrixTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D6E94F2A208893CB0095B023 /* SwiftyMatrix-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6E94F30208893CB0095B023 /* Build configuration list for PBXNativeTarget "SwiftyMatrix-watchOS" */;
+			buildPhases = (
+				D6E94F26208893CB0095B023 /* Sources */,
+				D6E94F27208893CB0095B023 /* Frameworks */,
+				D6E94F28208893CB0095B023 /* Headers */,
+				D6E94F29208893CB0095B023 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftyMatrix-watchOS";
+			productName = "SwiftyMatrix-watchOS";
+			productReference = D6E94F2B208893CB0095B023 /* SwiftyMatrix.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D6E94E9E20888EB00095B023 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = koherent.org;
+				TargetAttributes = {
+					D6E94EA620888EB00095B023 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					D6E94EAF20888EB00095B023 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					D6E94EF2208893760095B023 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					D6E94EFA208893760095B023 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					D6E94F0E208893B70095B023 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					D6E94F16208893B70095B023 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					D6E94F2A208893CB0095B023 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = D6E94EA120888EB00095B023 /* Build configuration list for PBXProject "SwiftyMatrix" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D6E94E9D20888EB00095B023;
+			productRefGroup = D6E94EA820888EB00095B023 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D6E94EA620888EB00095B023 /* SwiftyMatrix-iOS */,
+				D6E94EAF20888EB00095B023 /* SwiftyMatrixTests-iOS */,
+				D6E94EF2208893760095B023 /* SwiftyMatrix-macOS */,
+				D6E94EFA208893760095B023 /* SwiftyMatrixTests-macOS */,
+				D6E94F0E208893B70095B023 /* SwiftyMatrix-tvOS */,
+				D6E94F16208893B70095B023 /* SwiftyMatrixTests-tvOS */,
+				D6E94F2A208893CB0095B023 /* SwiftyMatrix-watchOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D6E94EA520888EB00095B023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94EAE20888EB00095B023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94EF1208893760095B023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94EF9208893760095B023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94F0D208893B70095B023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94F15208893B70095B023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94F29208893CB0095B023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D6E94EA220888EB00095B023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94EE920888FD00095B023 /* SquareMatrix.swift in Sources */,
+				D6E94EE820888FD00095B023 /* Concrete.swift in Sources */,
+				D6E94EE620888FD00095B023 /* Transform.swift in Sources */,
+				D6E94EE520888FD00095B023 /* CoreGraphics.swift in Sources */,
+				D6E94EE720888FD00095B023 /* Matrix.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94EAC20888EB00095B023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94EE420888FA30095B023 /* TransformTests.swift in Sources */,
+				D6E94EDF20888FA30095B023 /* XCTestManifests.swift in Sources */,
+				D6E94EE020888FA30095B023 /* SwiftyMatrixTests.swift in Sources */,
+				D6E94EE120888FA30095B023 /* Utils.swift in Sources */,
+				D6E94EE220888FA30095B023 /* ConcreteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94EEE208893760095B023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94F37208895490095B023 /* SquareMatrix.swift in Sources */,
+				D6E94F36208895490095B023 /* Concrete.swift in Sources */,
+				D6E94F34208895490095B023 /* Transform.swift in Sources */,
+				D6E94F33208895490095B023 /* CoreGraphics.swift in Sources */,
+				D6E94F35208895490095B023 /* Matrix.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94EF7208893760095B023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94F482088955E0095B023 /* ConcreteTests.swift in Sources */,
+				D6E94F462088955E0095B023 /* SwiftyMatrixTests.swift in Sources */,
+				D6E94F452088955E0095B023 /* XCTestManifests.swift in Sources */,
+				D6E94F492088955E0095B023 /* TransformTests.swift in Sources */,
+				D6E94F472088955E0095B023 /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94F0A208893B70095B023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94F3C2088954A0095B023 /* SquareMatrix.swift in Sources */,
+				D6E94F3B2088954A0095B023 /* Concrete.swift in Sources */,
+				D6E94F392088954A0095B023 /* Transform.swift in Sources */,
+				D6E94F382088954A0095B023 /* CoreGraphics.swift in Sources */,
+				D6E94F3A2088954A0095B023 /* Matrix.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94F13208893B70095B023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94F4D2088955F0095B023 /* ConcreteTests.swift in Sources */,
+				D6E94F4B2088955F0095B023 /* SwiftyMatrixTests.swift in Sources */,
+				D6E94F4A2088955F0095B023 /* XCTestManifests.swift in Sources */,
+				D6E94F4E2088955F0095B023 /* TransformTests.swift in Sources */,
+				D6E94F4C2088955F0095B023 /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6E94F26208893CB0095B023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6E94F412088954B0095B023 /* SquareMatrix.swift in Sources */,
+				D6E94F402088954B0095B023 /* Concrete.swift in Sources */,
+				D6E94F3E2088954B0095B023 /* Transform.swift in Sources */,
+				D6E94F3D2088954B0095B023 /* CoreGraphics.swift in Sources */,
+				D6E94F3F2088954B0095B023 /* Matrix.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D6E94EB320888EB00095B023 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6E94EA620888EB00095B023 /* SwiftyMatrix-iOS */;
+			targetProxy = D6E94EB220888EB00095B023 /* PBXContainerItemProxy */;
+		};
+		D6E94EFE208893770095B023 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6E94EF2208893760095B023 /* SwiftyMatrix-macOS */;
+			targetProxy = D6E94EFD208893770095B023 /* PBXContainerItemProxy */;
+		};
+		D6E94F1A208893B70095B023 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6E94F0E208893B70095B023 /* SwiftyMatrix-tvOS */;
+			targetProxy = D6E94F19208893B70095B023 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D6E94EB920888EB00095B023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D6E94EBA20888EB00095B023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D6E94EBC20888EB00095B023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Sources/SwiftyMatrix/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.koherent.SwiftyMatrix;
+				PRODUCT_NAME = SwiftyMatrix;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D6E94EBD20888EB00095B023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Sources/SwiftyMatrix/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.koherent.SwiftyMatrix;
+				PRODUCT_NAME = SwiftyMatrix;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D6E94EBF20888EB00095B023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Tests/SwiftyMatrixTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.koherent.SwiftyMatrixTests;
+				PRODUCT_NAME = SwiftyMatrixTests;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D6E94EC020888EB00095B023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Tests/SwiftyMatrixTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.koherent.SwiftyMatrixTests;
+				PRODUCT_NAME = SwiftyMatrixTests;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D6E94F04208893770095B023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Sources/SwiftyMatrix/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = org.koherent.SwiftyMatrix;
+				PRODUCT_NAME = SwiftyMatrix;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		D6E94F05208893770095B023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Sources/SwiftyMatrix/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = org.koherent.SwiftyMatrix;
+				PRODUCT_NAME = SwiftyMatrix;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		D6E94F06208893770095B023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = Tests/SwiftyMatrixTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = org.koherent.SwiftyMatrixTests;
+				PRODUCT_NAME = SwiftyMatrixTests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		D6E94F07208893770095B023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = Tests/SwiftyMatrixTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = org.koherent.SwiftyMatrixTests;
+				PRODUCT_NAME = SwiftyMatrixTests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		D6E94F21208893B70095B023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = Sources/SwiftyMatrix/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.koherent.SwiftyMatrix;
+				PRODUCT_NAME = SwiftyMatrix;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		D6E94F22208893B70095B023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = Sources/SwiftyMatrix/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.koherent.SwiftyMatrix;
+				PRODUCT_NAME = SwiftyMatrix;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
+		D6E94F24208893B70095B023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = Tests/SwiftyMatrixTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.koherent.SwiftyMatrixTests;
+				PRODUCT_NAME = SwiftyMatrixTests;
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.3;
+			};
+			name = Debug;
+		};
+		D6E94F25208893B70095B023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = Tests/SwiftyMatrixTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.koherent.SwiftyMatrixTests;
+				PRODUCT_NAME = SwiftyMatrixTests;
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.3;
+			};
+			name = Release;
+		};
+		D6E94F31208893CB0095B023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
+				INFOPLIST_FILE = Sources/SwiftyMatrix/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.koherent.SwiftyMatrix;
+				PRODUCT_NAME = SwiftyMatrix;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		D6E94F32208893CB0095B023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
+				INFOPLIST_FILE = Sources/SwiftyMatrix/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.koherent.SwiftyMatrix;
+				PRODUCT_NAME = SwiftyMatrix;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D6E94EA120888EB00095B023 /* Build configuration list for PBXProject "SwiftyMatrix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6E94EB920888EB00095B023 /* Debug */,
+				D6E94EBA20888EB00095B023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6E94EBB20888EB00095B023 /* Build configuration list for PBXNativeTarget "SwiftyMatrix-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6E94EBC20888EB00095B023 /* Debug */,
+				D6E94EBD20888EB00095B023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6E94EBE20888EB00095B023 /* Build configuration list for PBXNativeTarget "SwiftyMatrixTests-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6E94EBF20888EB00095B023 /* Debug */,
+				D6E94EC020888EB00095B023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6E94F08208893770095B023 /* Build configuration list for PBXNativeTarget "SwiftyMatrix-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6E94F04208893770095B023 /* Debug */,
+				D6E94F05208893770095B023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6E94F09208893770095B023 /* Build configuration list for PBXNativeTarget "SwiftyMatrixTests-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6E94F06208893770095B023 /* Debug */,
+				D6E94F07208893770095B023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6E94F20208893B70095B023 /* Build configuration list for PBXNativeTarget "SwiftyMatrix-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6E94F21208893B70095B023 /* Debug */,
+				D6E94F22208893B70095B023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6E94F23208893B70095B023 /* Build configuration list for PBXNativeTarget "SwiftyMatrixTests-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6E94F24208893B70095B023 /* Debug */,
+				D6E94F25208893B70095B023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6E94F30208893CB0095B023 /* Build configuration list for PBXNativeTarget "SwiftyMatrix-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6E94F31208893CB0095B023 /* Debug */,
+				D6E94F32208893CB0095B023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D6E94E9E20888EB00095B023 /* Project object */;
+}

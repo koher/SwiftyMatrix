@@ -1,0 +1,98 @@
+% scalar_types = ['Float', 'Double']
+% scalar_type_to_symbol = {'Float': 'f', 'Double': ''}
+% dimensions = ['2', '3', '4']
+import SwiftyVector
+import Foundation
+
+#if canImport(simd) // TODO: Remove this after matrix types without simd are implemented.
+%
+% for dimension in dimensions:
+%   for scalar_type in scalar_types:
+%     symbol = scalar_type_to_symbol[scalar_type]
+
+extension Matrix${dimension}x${dimension}${symbol} {
+%     if dimension in ['2', '3']:
+%       target_dimension = '' if dimension == '2' else '2'
+    public static func scaling${target_dimension}(by scales: Vector2${symbol}) -> Matrix${dimension}x${dimension}${symbol} {
+        return [
+            Vector${dimension}${symbol}(x: scales.x, y: 0${',        z: 0' if dimension == '3' else ''}),
+            Vector${dimension}${symbol}(x: 0       , y: scales.y${', z: 0' if dimension == '3' else ''}),
+%       if dimension == '3':
+            Vector${dimension}${symbol}(x: 0,        y: 0,        z: 1),
+%       end
+        ]
+    }
+
+    public static func rotation${target_dimension}(by angle: ${scalar_type}) -> Matrix${dimension}x${dimension}${symbol} {
+        let c = cos(angle)
+        let s = sin(angle)
+        return [
+            Vector${dimension}${symbol}(x: c, y: -s${', z: 0' if dimension == '3' else ''}),
+            Vector${dimension}${symbol}(x: s, y: c${',  z: 0' if dimension == '3' else ''}),
+%       if dimension == '3':
+            Vector${dimension}${symbol}(x: 0, y: 0,  z: 1),
+%       end
+        ]
+    }
+%     end
+%     if dimension in ['3']:
+
+    public static func translation2(by translation: Vector2${symbol}) -> Matrix${dimension}x${dimension}${symbol} {
+        return [
+            Vector${dimension}${symbol}(x: 1, y: 0${', z: translation.x' if dimension == '3' else ''}),
+            Vector${dimension}${symbol}(x: 0, y: 1${', z: translation.y' if dimension == '3' else ''}),
+%       if dimension == '3':
+            Vector${dimension}${symbol}(x: 0, y: 0, z: 1),
+%       end
+        ]
+    }
+%     end
+%     if dimension == '3':
+
+%     end
+%     if dimension in ['3', '4']:
+%       target_dimension = '' if dimension == '3' else '3'
+    public static func scaling${target_dimension}(by scales: Vector3${symbol}) -> Matrix${dimension}x${dimension}${symbol} {
+        return [
+            Vector${dimension}${symbol}(x: scales.x, y: 0,        z: 0${',        w: 0' if dimension == '4' else ''}),
+            Vector${dimension}${symbol}(x: 0       , y: scales.y, z: 0${',        w: 0' if dimension == '4' else ''}),
+            Vector${dimension}${symbol}(x: 0       , y: 0,        z: scales.z${', w: 0' if dimension == '4' else ''}),
+%       if dimension == '4':
+            Vector${dimension}${symbol}(x: 0,        y: 0,        z: 0,        w: 1),
+%       end
+        ]
+    }
+
+    public static func rotation${target_dimension}(by angle: ${scalar_type}, around axis: Vector3${symbol}) -> Matrix${dimension}x${dimension}${symbol} {
+        let a = axis.unit
+        let c = cos(angle)
+        let omc = 1 - c
+        let s = sin(angle)
+        return [
+            Vector${dimension}${symbol}(x: a.x * a.x * omc + c,       y: a.x * a.y * omc - a.z * s, z: a.x * a.z * omc + a.y * s${', w: 0' if dimension == '4' else ''}),
+            Vector${dimension}${symbol}(x: a.y * a.x * omc + a.z * s, y: a.y * a.y * omc + c,       z: a.y * a.z * omc - a.x * s${', w: 0' if dimension == '4' else ''}),
+            Vector${dimension}${symbol}(x: a.x * a.z * omc - a.y * s, y: a.y * a.z * omc + a.x * s, z: a.z * a.z * omc + c${'      , w: 0' if dimension == '4' else ''}),
+%       if dimension == '4':
+            Vector${dimension}${symbol}(x: 0,                         y: 0,                         z: 0,                         w: 1),
+%       end
+        ]
+    }
+%     end
+%     if dimension in ['4']:
+
+    public static func translation3(by translation: Vector3${symbol}) -> Matrix${dimension}x${dimension}${symbol} {
+        return [
+            Vector${dimension}${symbol}(x: 1, y: 0, z: 0${', w: translation.x' if dimension == '4' else ''}),
+            Vector${dimension}${symbol}(x: 0, y: 1, z: 0${', w: translation.y' if dimension == '4' else ''}),
+            Vector${dimension}${symbol}(x: 0, y: 0, z: 1${', w: translation.z' if dimension == '4' else ''}),
+%       if dimension == '4':
+            Vector${dimension}${symbol}(x: 0, y: 0, z: 0, w: 1),
+%       end
+        ]
+    }
+%     end
+}
+%   end
+% end
+
+#endif // TODO: Remove this after matrix types without simd are implemented.

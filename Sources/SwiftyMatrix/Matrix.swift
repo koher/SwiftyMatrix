@@ -1,5 +1,9 @@
+import SwiftyVector
+
 public protocol Matrix {
     associatedtype Scalar
+    associatedtype RowVector : Vector
+    associatedtype ColumnVector : Vector
     associatedtype Transpose : Matrix
     
     var rowCount: Int { get }
@@ -13,6 +17,8 @@ public protocol Matrix {
     static func -(lhs: Self, rhs: Self) -> Self
     static func *(lhs: Self, rhs: Scalar) -> Self
     static func *(lhs: Scalar, rhs: Self) -> Self
+    static func *(lhs: Self, rhs: ColumnVector) -> RowVector
+    static func *(lhs: RowVector, rhs: Self) -> ColumnVector
     static func /(lhs: Self, rhs: Scalar) -> Self
     
     static prefix func +(value: Self) -> Self

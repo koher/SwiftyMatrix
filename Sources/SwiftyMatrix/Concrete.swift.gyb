@@ -4,6 +4,8 @@
 % scalar_type_to_simd_type_prefix = {'Float': 'matrix_float', 'Double': 'matrix_double'}
 % scalar_type_to_simd_identity_prefix = {'Float': 'matrix_identity_float', 'Double': 'matrix_identity_double'}
 %
+import SwiftyVector
+
 #if canImport(simd)
 @_exported import simd
 #endif
@@ -21,10 +23,12 @@
 %       simd_identity_prefix = scalar_type_to_simd_identity_prefix[scalar_type]
 
 #if canImport(simd)
-public typealias Matrix${num_rows}x${num_cols}${symbol} = ${simd_type_prefix}${num_rows}x${num_cols}
+public typealias Matrix${num_rows}x${num_cols}${symbol} = ${simd_type_prefix}${num_cols}x${num_rows}
 
 extension Matrix${num_rows}x${num_cols}${symbol} : ${matrix_type} {
     public typealias Scalar = ${scalar_type}
+    public typealias RowVector = Vector${num_rows}${symbol}
+    public typealias ColumnVector = Vector${num_cols}${symbol}
     public typealias Transpose = Matrix${num_cols}x${num_rows}${symbol}
 
     public var rowCount: Int {
@@ -36,7 +40,7 @@ extension Matrix${num_rows}x${num_cols}${symbol} : ${matrix_type} {
     }
 
     public static var zero: Matrix${num_rows}x${num_cols}${symbol} {
-        return ${simd_type_prefix}${num_rows}x${num_cols}()
+        return ${simd_type_prefix}${num_cols}x${num_rows}()
     }
 
     public static func /(lhs: Matrix${num_rows}x${num_cols}${symbol}, rhs: ${scalar_type}) -> Matrix${num_rows}x${num_cols}${symbol} {

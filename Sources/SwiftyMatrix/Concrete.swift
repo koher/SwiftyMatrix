@@ -1,3 +1,5 @@
+import SwiftyVector
+
 #if canImport(simd)
 @_exported import simd
 #endif
@@ -7,6 +9,8 @@ public typealias Matrix2x2f = matrix_float2x2
 
 extension Matrix2x2f : SquareMatrix {
     public typealias Scalar = Float
+    public typealias RowVector = Vector2f
+    public typealias ColumnVector = Vector2f
     public typealias Transpose = Matrix2x2f
 
     public var rowCount: Int {
@@ -44,6 +48,8 @@ public typealias Matrix2x2 = matrix_double2x2
 
 extension Matrix2x2 : SquareMatrix {
     public typealias Scalar = Double
+    public typealias RowVector = Vector2
+    public typealias ColumnVector = Vector2
     public typealias Transpose = Matrix2x2
 
     public var rowCount: Int {
@@ -77,10 +83,12 @@ extension Matrix2x2 : SquareMatrix {
 #endif
 
 #if canImport(simd)
-public typealias Matrix2x3f = matrix_float2x3
+public typealias Matrix2x3f = matrix_float3x2
 
 extension Matrix2x3f : Matrix {
     public typealias Scalar = Float
+    public typealias RowVector = Vector2f
+    public typealias ColumnVector = Vector3f
     public typealias Transpose = Matrix3x2f
 
     public var rowCount: Int {
@@ -92,7 +100,7 @@ extension Matrix2x3f : Matrix {
     }
 
     public static var zero: Matrix2x3f {
-        return matrix_float2x3()
+        return matrix_float3x2()
     }
 
     public static func /(lhs: Matrix2x3f, rhs: Float) -> Matrix2x3f {
@@ -110,10 +118,12 @@ extension Matrix2x3f : Matrix {
 #endif
 
 #if canImport(simd)
-public typealias Matrix2x3 = matrix_double2x3
+public typealias Matrix2x3 = matrix_double3x2
 
 extension Matrix2x3 : Matrix {
     public typealias Scalar = Double
+    public typealias RowVector = Vector2
+    public typealias ColumnVector = Vector3
     public typealias Transpose = Matrix3x2
 
     public var rowCount: Int {
@@ -125,7 +135,7 @@ extension Matrix2x3 : Matrix {
     }
 
     public static var zero: Matrix2x3 {
-        return matrix_double2x3()
+        return matrix_double3x2()
     }
 
     public static func /(lhs: Matrix2x3, rhs: Double) -> Matrix2x3 {
@@ -143,10 +153,12 @@ extension Matrix2x3 : Matrix {
 #endif
 
 #if canImport(simd)
-public typealias Matrix2x4f = matrix_float2x4
+public typealias Matrix2x4f = matrix_float4x2
 
 extension Matrix2x4f : Matrix {
     public typealias Scalar = Float
+    public typealias RowVector = Vector2f
+    public typealias ColumnVector = Vector4f
     public typealias Transpose = Matrix4x2f
 
     public var rowCount: Int {
@@ -158,7 +170,7 @@ extension Matrix2x4f : Matrix {
     }
 
     public static var zero: Matrix2x4f {
-        return matrix_float2x4()
+        return matrix_float4x2()
     }
 
     public static func /(lhs: Matrix2x4f, rhs: Float) -> Matrix2x4f {
@@ -176,10 +188,12 @@ extension Matrix2x4f : Matrix {
 #endif
 
 #if canImport(simd)
-public typealias Matrix2x4 = matrix_double2x4
+public typealias Matrix2x4 = matrix_double4x2
 
 extension Matrix2x4 : Matrix {
     public typealias Scalar = Double
+    public typealias RowVector = Vector2
+    public typealias ColumnVector = Vector4
     public typealias Transpose = Matrix4x2
 
     public var rowCount: Int {
@@ -191,7 +205,7 @@ extension Matrix2x4 : Matrix {
     }
 
     public static var zero: Matrix2x4 {
-        return matrix_double2x4()
+        return matrix_double4x2()
     }
 
     public static func /(lhs: Matrix2x4, rhs: Double) -> Matrix2x4 {
@@ -209,10 +223,12 @@ extension Matrix2x4 : Matrix {
 #endif
 
 #if canImport(simd)
-public typealias Matrix3x2f = matrix_float3x2
+public typealias Matrix3x2f = matrix_float2x3
 
 extension Matrix3x2f : Matrix {
     public typealias Scalar = Float
+    public typealias RowVector = Vector3f
+    public typealias ColumnVector = Vector2f
     public typealias Transpose = Matrix2x3f
 
     public var rowCount: Int {
@@ -224,7 +240,7 @@ extension Matrix3x2f : Matrix {
     }
 
     public static var zero: Matrix3x2f {
-        return matrix_float3x2()
+        return matrix_float2x3()
     }
 
     public static func /(lhs: Matrix3x2f, rhs: Float) -> Matrix3x2f {
@@ -242,10 +258,12 @@ extension Matrix3x2f : Matrix {
 #endif
 
 #if canImport(simd)
-public typealias Matrix3x2 = matrix_double3x2
+public typealias Matrix3x2 = matrix_double2x3
 
 extension Matrix3x2 : Matrix {
     public typealias Scalar = Double
+    public typealias RowVector = Vector3
+    public typealias ColumnVector = Vector2
     public typealias Transpose = Matrix2x3
 
     public var rowCount: Int {
@@ -257,7 +275,7 @@ extension Matrix3x2 : Matrix {
     }
 
     public static var zero: Matrix3x2 {
-        return matrix_double3x2()
+        return matrix_double2x3()
     }
 
     public static func /(lhs: Matrix3x2, rhs: Double) -> Matrix3x2 {
@@ -279,6 +297,8 @@ public typealias Matrix3x3f = matrix_float3x3
 
 extension Matrix3x3f : SquareMatrix {
     public typealias Scalar = Float
+    public typealias RowVector = Vector3f
+    public typealias ColumnVector = Vector3f
     public typealias Transpose = Matrix3x3f
 
     public var rowCount: Int {
@@ -316,6 +336,8 @@ public typealias Matrix3x3 = matrix_double3x3
 
 extension Matrix3x3 : SquareMatrix {
     public typealias Scalar = Double
+    public typealias RowVector = Vector3
+    public typealias ColumnVector = Vector3
     public typealias Transpose = Matrix3x3
 
     public var rowCount: Int {
@@ -349,10 +371,12 @@ extension Matrix3x3 : SquareMatrix {
 #endif
 
 #if canImport(simd)
-public typealias Matrix3x4f = matrix_float3x4
+public typealias Matrix3x4f = matrix_float4x3
 
 extension Matrix3x4f : Matrix {
     public typealias Scalar = Float
+    public typealias RowVector = Vector3f
+    public typealias ColumnVector = Vector4f
     public typealias Transpose = Matrix4x3f
 
     public var rowCount: Int {
@@ -364,7 +388,7 @@ extension Matrix3x4f : Matrix {
     }
 
     public static var zero: Matrix3x4f {
-        return matrix_float3x4()
+        return matrix_float4x3()
     }
 
     public static func /(lhs: Matrix3x4f, rhs: Float) -> Matrix3x4f {
@@ -382,10 +406,12 @@ extension Matrix3x4f : Matrix {
 #endif
 
 #if canImport(simd)
-public typealias Matrix3x4 = matrix_double3x4
+public typealias Matrix3x4 = matrix_double4x3
 
 extension Matrix3x4 : Matrix {
     public typealias Scalar = Double
+    public typealias RowVector = Vector3
+    public typealias ColumnVector = Vector4
     public typealias Transpose = Matrix4x3
 
     public var rowCount: Int {
@@ -397,7 +423,7 @@ extension Matrix3x4 : Matrix {
     }
 
     public static var zero: Matrix3x4 {
-        return matrix_double3x4()
+        return matrix_double4x3()
     }
 
     public static func /(lhs: Matrix3x4, rhs: Double) -> Matrix3x4 {
@@ -415,10 +441,12 @@ extension Matrix3x4 : Matrix {
 #endif
 
 #if canImport(simd)
-public typealias Matrix4x2f = matrix_float4x2
+public typealias Matrix4x2f = matrix_float2x4
 
 extension Matrix4x2f : Matrix {
     public typealias Scalar = Float
+    public typealias RowVector = Vector4f
+    public typealias ColumnVector = Vector2f
     public typealias Transpose = Matrix2x4f
 
     public var rowCount: Int {
@@ -430,7 +458,7 @@ extension Matrix4x2f : Matrix {
     }
 
     public static var zero: Matrix4x2f {
-        return matrix_float4x2()
+        return matrix_float2x4()
     }
 
     public static func /(lhs: Matrix4x2f, rhs: Float) -> Matrix4x2f {
@@ -448,10 +476,12 @@ extension Matrix4x2f : Matrix {
 #endif
 
 #if canImport(simd)
-public typealias Matrix4x2 = matrix_double4x2
+public typealias Matrix4x2 = matrix_double2x4
 
 extension Matrix4x2 : Matrix {
     public typealias Scalar = Double
+    public typealias RowVector = Vector4
+    public typealias ColumnVector = Vector2
     public typealias Transpose = Matrix2x4
 
     public var rowCount: Int {
@@ -463,7 +493,7 @@ extension Matrix4x2 : Matrix {
     }
 
     public static var zero: Matrix4x2 {
-        return matrix_double4x2()
+        return matrix_double2x4()
     }
 
     public static func /(lhs: Matrix4x2, rhs: Double) -> Matrix4x2 {
@@ -481,10 +511,12 @@ extension Matrix4x2 : Matrix {
 #endif
 
 #if canImport(simd)
-public typealias Matrix4x3f = matrix_float4x3
+public typealias Matrix4x3f = matrix_float3x4
 
 extension Matrix4x3f : Matrix {
     public typealias Scalar = Float
+    public typealias RowVector = Vector4f
+    public typealias ColumnVector = Vector3f
     public typealias Transpose = Matrix3x4f
 
     public var rowCount: Int {
@@ -496,7 +528,7 @@ extension Matrix4x3f : Matrix {
     }
 
     public static var zero: Matrix4x3f {
-        return matrix_float4x3()
+        return matrix_float3x4()
     }
 
     public static func /(lhs: Matrix4x3f, rhs: Float) -> Matrix4x3f {
@@ -514,10 +546,12 @@ extension Matrix4x3f : Matrix {
 #endif
 
 #if canImport(simd)
-public typealias Matrix4x3 = matrix_double4x3
+public typealias Matrix4x3 = matrix_double3x4
 
 extension Matrix4x3 : Matrix {
     public typealias Scalar = Double
+    public typealias RowVector = Vector4
+    public typealias ColumnVector = Vector3
     public typealias Transpose = Matrix3x4
 
     public var rowCount: Int {
@@ -529,7 +563,7 @@ extension Matrix4x3 : Matrix {
     }
 
     public static var zero: Matrix4x3 {
-        return matrix_double4x3()
+        return matrix_double3x4()
     }
 
     public static func /(lhs: Matrix4x3, rhs: Double) -> Matrix4x3 {
@@ -551,6 +585,8 @@ public typealias Matrix4x4f = matrix_float4x4
 
 extension Matrix4x4f : SquareMatrix {
     public typealias Scalar = Float
+    public typealias RowVector = Vector4f
+    public typealias ColumnVector = Vector4f
     public typealias Transpose = Matrix4x4f
 
     public var rowCount: Int {
@@ -588,6 +624,8 @@ public typealias Matrix4x4 = matrix_double4x4
 
 extension Matrix4x4 : SquareMatrix {
     public typealias Scalar = Double
+    public typealias RowVector = Vector4
+    public typealias ColumnVector = Vector4
     public typealias Transpose = Matrix4x4
 
     public var rowCount: Int {

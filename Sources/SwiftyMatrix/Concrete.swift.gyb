@@ -13,6 +13,7 @@
 % scalar_type_to_symbol = {'Float': 'f', 'Double': ''}
 % scalar_type_to_simd_type_prefix = {'Float': 'matrix_float', 'Double': 'matrix_double'}
 % scalar_type_to_simd_identity_prefix = {'Float': 'matrix_identity_float', 'Double': 'matrix_identity_double'}
+% scalar_type_to_simd_vector_prefix = {'Float': 'vector_float', 'Double': 'vector_double'}
 %
 import SwiftyVector
 
@@ -31,6 +32,7 @@ import SwiftyVector
 %       symbol = scalar_type_to_symbol[scalar_type]
 %       simd_type_prefix = scalar_type_to_simd_type_prefix[scalar_type]
 %       simd_identity_prefix = scalar_type_to_simd_identity_prefix[scalar_type]
+%       simd_vector_type_prefix = scalar_type_to_simd_vector_prefix[scalar_type]
 
 #if canImport(simd)
 public struct Matrix${num_rows}x${num_cols}${symbol} {
@@ -86,11 +88,11 @@ extension Matrix${num_rows}x${num_cols}${symbol} : ${matrix_type} {
     }
 
     public static func *(lhs: Matrix${num_rows}x${num_cols}${symbol}, rhs: Vector${num_cols}${symbol}) -> Vector${num_rows}${symbol} {
-        return /*Vector${num_rows}${symbol}(*/lhs.matrix * rhs/*)*/
+        return Vector${num_rows}${symbol}(lhs.matrix * ${simd_vector_type_prefix}${num_cols}(rhs))
     }
 
     public static func *(lhs: Vector${num_rows}${symbol}, rhs: Matrix${num_rows}x${num_cols}${symbol}) -> Vector${num_cols}${symbol} {
-        return /*Vector${num_cols}${symbol}(*/lhs * rhs.matrix/*)*/
+        return Vector${num_cols}${symbol}(${simd_vector_type_prefix}${num_rows}(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix${num_rows}x${num_cols}${symbol}, rhs: ${scalar_type}) -> Matrix${num_rows}x${num_cols}${symbol} {
@@ -146,6 +148,31 @@ extension Matrix${num_rows}x${num_cols}${symbol} { // Equatable
     }
 }
 
+extension Matrix${num_rows}x${num_cols}${symbol} : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+%       for i, row in enumerate(dimension_to_rows[num_rows]):
+        try container.encode([${', '.join([f'matrix.columns.{column}.{row}' for column in dimension_to_columns[num_cols]])}])
+%       end
+    }
+}
+
+extension Matrix${num_rows}x${num_cols}${symbol} : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+%       for i, row in enumerate(dimension_to_rows[num_rows]):
+        let row${i} = try container.decode(Vector${num_cols}${symbol}.self)
+%       end
+
+        self.init(${simd_type_prefix}${num_cols}x${num_rows}(
+%       for i, column in enumerate(dimension_to_rows[num_cols]):
+%         is_last = i == int(num_cols) - 1
+            [${', '.join([f'row{row}.{column}' for row in dimension_to_columns[num_rows]])}]${'' if is_last else ','}
+%       end
+        ))
+    }
+}
+
 extension Matrix${num_rows}x${num_cols}${symbol} : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector${num_cols}${symbol}...) {
         precondition(elements.count == ${num_rows})
@@ -158,6 +185,7 @@ extension Matrix${num_rows}x${num_cols}${symbol} : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 %     end
 %   end

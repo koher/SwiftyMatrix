@@ -58,11 +58,11 @@ extension Matrix2x2f : SquareMatrix {
     }
 
     public static func *(lhs: Matrix2x2f, rhs: Vector2f) -> Vector2f {
-        return /*Vector2f(*/lhs.matrix * rhs/*)*/
+        return Vector2f(lhs.matrix * vector_float2(rhs))
     }
 
     public static func *(lhs: Vector2f, rhs: Matrix2x2f) -> Vector2f {
-        return /*Vector2f(*/lhs * rhs.matrix/*)*/
+        return Vector2f(vector_float2(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix2x2f, rhs: Float) -> Matrix2x2f {
@@ -114,6 +114,27 @@ extension Matrix2x2f { // Equatable
     }
 }
 
+extension Matrix2x2f : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y])
+    }
+}
+
+extension Matrix2x2f : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector2f.self)
+        let row1 = try container.decode(Vector2f.self)
+
+        self.init(matrix_float2x2(
+            [row0.x, row1.x],
+            [row0.y, row1.y]
+        ))
+    }
+}
+
 extension Matrix2x2f : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector2f...) {
         precondition(elements.count == 2)
@@ -124,6 +145,7 @@ extension Matrix2x2f : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -180,11 +202,11 @@ extension Matrix2x2 : SquareMatrix {
     }
 
     public static func *(lhs: Matrix2x2, rhs: Vector2) -> Vector2 {
-        return /*Vector2(*/lhs.matrix * rhs/*)*/
+        return Vector2(lhs.matrix * vector_double2(rhs))
     }
 
     public static func *(lhs: Vector2, rhs: Matrix2x2) -> Vector2 {
-        return /*Vector2(*/lhs * rhs.matrix/*)*/
+        return Vector2(vector_double2(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix2x2, rhs: Double) -> Matrix2x2 {
@@ -236,6 +258,27 @@ extension Matrix2x2 { // Equatable
     }
 }
 
+extension Matrix2x2 : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y])
+    }
+}
+
+extension Matrix2x2 : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector2.self)
+        let row1 = try container.decode(Vector2.self)
+
+        self.init(matrix_double2x2(
+            [row0.x, row1.x],
+            [row0.y, row1.y]
+        ))
+    }
+}
+
 extension Matrix2x2 : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector2...) {
         precondition(elements.count == 2)
@@ -246,6 +289,7 @@ extension Matrix2x2 : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -302,11 +346,11 @@ extension Matrix2x3f : Matrix {
     }
 
     public static func *(lhs: Matrix2x3f, rhs: Vector3f) -> Vector2f {
-        return /*Vector2f(*/lhs.matrix * rhs/*)*/
+        return Vector2f(lhs.matrix * vector_float3(rhs))
     }
 
     public static func *(lhs: Vector2f, rhs: Matrix2x3f) -> Vector3f {
-        return /*Vector3f(*/lhs * rhs.matrix/*)*/
+        return Vector3f(vector_float2(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix2x3f, rhs: Float) -> Matrix2x3f {
@@ -346,6 +390,28 @@ extension Matrix2x3f { // Equatable
     }
 }
 
+extension Matrix2x3f : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x, matrix.columns.2.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y, matrix.columns.2.y])
+    }
+}
+
+extension Matrix2x3f : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector3f.self)
+        let row1 = try container.decode(Vector3f.self)
+
+        self.init(matrix_float3x2(
+            [row0.x, row1.x],
+            [row0.y, row1.y],
+            [row0.z, row1.z]
+        ))
+    }
+}
+
 extension Matrix2x3f : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector3f...) {
         precondition(elements.count == 2)
@@ -357,6 +423,7 @@ extension Matrix2x3f : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -413,11 +480,11 @@ extension Matrix2x3 : Matrix {
     }
 
     public static func *(lhs: Matrix2x3, rhs: Vector3) -> Vector2 {
-        return /*Vector2(*/lhs.matrix * rhs/*)*/
+        return Vector2(lhs.matrix * vector_double3(rhs))
     }
 
     public static func *(lhs: Vector2, rhs: Matrix2x3) -> Vector3 {
-        return /*Vector3(*/lhs * rhs.matrix/*)*/
+        return Vector3(vector_double2(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix2x3, rhs: Double) -> Matrix2x3 {
@@ -457,6 +524,28 @@ extension Matrix2x3 { // Equatable
     }
 }
 
+extension Matrix2x3 : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x, matrix.columns.2.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y, matrix.columns.2.y])
+    }
+}
+
+extension Matrix2x3 : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector3.self)
+        let row1 = try container.decode(Vector3.self)
+
+        self.init(matrix_double3x2(
+            [row0.x, row1.x],
+            [row0.y, row1.y],
+            [row0.z, row1.z]
+        ))
+    }
+}
+
 extension Matrix2x3 : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector3...) {
         precondition(elements.count == 2)
@@ -468,6 +557,7 @@ extension Matrix2x3 : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -524,11 +614,11 @@ extension Matrix2x4f : Matrix {
     }
 
     public static func *(lhs: Matrix2x4f, rhs: Vector4f) -> Vector2f {
-        return /*Vector2f(*/lhs.matrix * rhs/*)*/
+        return Vector2f(lhs.matrix * vector_float4(rhs))
     }
 
     public static func *(lhs: Vector2f, rhs: Matrix2x4f) -> Vector4f {
-        return /*Vector4f(*/lhs * rhs.matrix/*)*/
+        return Vector4f(vector_float2(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix2x4f, rhs: Float) -> Matrix2x4f {
@@ -568,6 +658,29 @@ extension Matrix2x4f { // Equatable
     }
 }
 
+extension Matrix2x4f : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x, matrix.columns.2.x, matrix.columns.3.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y, matrix.columns.2.y, matrix.columns.3.y])
+    }
+}
+
+extension Matrix2x4f : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector4f.self)
+        let row1 = try container.decode(Vector4f.self)
+
+        self.init(matrix_float4x2(
+            [row0.x, row1.x],
+            [row0.y, row1.y],
+            [row0.z, row1.z],
+            [row0.w, row1.w]
+        ))
+    }
+}
+
 extension Matrix2x4f : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector4f...) {
         precondition(elements.count == 2)
@@ -580,6 +693,7 @@ extension Matrix2x4f : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -636,11 +750,11 @@ extension Matrix2x4 : Matrix {
     }
 
     public static func *(lhs: Matrix2x4, rhs: Vector4) -> Vector2 {
-        return /*Vector2(*/lhs.matrix * rhs/*)*/
+        return Vector2(lhs.matrix * vector_double4(rhs))
     }
 
     public static func *(lhs: Vector2, rhs: Matrix2x4) -> Vector4 {
-        return /*Vector4(*/lhs * rhs.matrix/*)*/
+        return Vector4(vector_double2(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix2x4, rhs: Double) -> Matrix2x4 {
@@ -680,6 +794,29 @@ extension Matrix2x4 { // Equatable
     }
 }
 
+extension Matrix2x4 : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x, matrix.columns.2.x, matrix.columns.3.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y, matrix.columns.2.y, matrix.columns.3.y])
+    }
+}
+
+extension Matrix2x4 : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector4.self)
+        let row1 = try container.decode(Vector4.self)
+
+        self.init(matrix_double4x2(
+            [row0.x, row1.x],
+            [row0.y, row1.y],
+            [row0.z, row1.z],
+            [row0.w, row1.w]
+        ))
+    }
+}
+
 extension Matrix2x4 : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector4...) {
         precondition(elements.count == 2)
@@ -692,6 +829,7 @@ extension Matrix2x4 : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -748,11 +886,11 @@ extension Matrix3x2f : Matrix {
     }
 
     public static func *(lhs: Matrix3x2f, rhs: Vector2f) -> Vector3f {
-        return /*Vector3f(*/lhs.matrix * rhs/*)*/
+        return Vector3f(lhs.matrix * vector_float2(rhs))
     }
 
     public static func *(lhs: Vector3f, rhs: Matrix3x2f) -> Vector2f {
-        return /*Vector2f(*/lhs * rhs.matrix/*)*/
+        return Vector2f(vector_float3(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix3x2f, rhs: Float) -> Matrix3x2f {
@@ -794,6 +932,29 @@ extension Matrix3x2f { // Equatable
     }
 }
 
+extension Matrix3x2f : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y])
+        try container.encode([matrix.columns.0.z, matrix.columns.1.z])
+    }
+}
+
+extension Matrix3x2f : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector2f.self)
+        let row1 = try container.decode(Vector2f.self)
+        let row2 = try container.decode(Vector2f.self)
+
+        self.init(matrix_float2x3(
+            [row0.x, row1.x, row2.x],
+            [row0.y, row1.y, row2.y]
+        ))
+    }
+}
+
 extension Matrix3x2f : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector2f...) {
         precondition(elements.count == 3)
@@ -804,6 +965,7 @@ extension Matrix3x2f : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -860,11 +1022,11 @@ extension Matrix3x2 : Matrix {
     }
 
     public static func *(lhs: Matrix3x2, rhs: Vector2) -> Vector3 {
-        return /*Vector3(*/lhs.matrix * rhs/*)*/
+        return Vector3(lhs.matrix * vector_double2(rhs))
     }
 
     public static func *(lhs: Vector3, rhs: Matrix3x2) -> Vector2 {
-        return /*Vector2(*/lhs * rhs.matrix/*)*/
+        return Vector2(vector_double3(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix3x2, rhs: Double) -> Matrix3x2 {
@@ -906,6 +1068,29 @@ extension Matrix3x2 { // Equatable
     }
 }
 
+extension Matrix3x2 : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y])
+        try container.encode([matrix.columns.0.z, matrix.columns.1.z])
+    }
+}
+
+extension Matrix3x2 : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector2.self)
+        let row1 = try container.decode(Vector2.self)
+        let row2 = try container.decode(Vector2.self)
+
+        self.init(matrix_double2x3(
+            [row0.x, row1.x, row2.x],
+            [row0.y, row1.y, row2.y]
+        ))
+    }
+}
+
 extension Matrix3x2 : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector2...) {
         precondition(elements.count == 3)
@@ -916,6 +1101,7 @@ extension Matrix3x2 : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -972,11 +1158,11 @@ extension Matrix3x3f : SquareMatrix {
     }
 
     public static func *(lhs: Matrix3x3f, rhs: Vector3f) -> Vector3f {
-        return /*Vector3f(*/lhs.matrix * rhs/*)*/
+        return Vector3f(lhs.matrix * vector_float3(rhs))
     }
 
     public static func *(lhs: Vector3f, rhs: Matrix3x3f) -> Vector3f {
-        return /*Vector3f(*/lhs * rhs.matrix/*)*/
+        return Vector3f(vector_float3(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix3x3f, rhs: Float) -> Matrix3x3f {
@@ -1030,6 +1216,30 @@ extension Matrix3x3f { // Equatable
     }
 }
 
+extension Matrix3x3f : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x, matrix.columns.2.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y, matrix.columns.2.y])
+        try container.encode([matrix.columns.0.z, matrix.columns.1.z, matrix.columns.2.z])
+    }
+}
+
+extension Matrix3x3f : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector3f.self)
+        let row1 = try container.decode(Vector3f.self)
+        let row2 = try container.decode(Vector3f.self)
+
+        self.init(matrix_float3x3(
+            [row0.x, row1.x, row2.x],
+            [row0.y, row1.y, row2.y],
+            [row0.z, row1.z, row2.z]
+        ))
+    }
+}
+
 extension Matrix3x3f : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector3f...) {
         precondition(elements.count == 3)
@@ -1041,6 +1251,7 @@ extension Matrix3x3f : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -1097,11 +1308,11 @@ extension Matrix3x3 : SquareMatrix {
     }
 
     public static func *(lhs: Matrix3x3, rhs: Vector3) -> Vector3 {
-        return /*Vector3(*/lhs.matrix * rhs/*)*/
+        return Vector3(lhs.matrix * vector_double3(rhs))
     }
 
     public static func *(lhs: Vector3, rhs: Matrix3x3) -> Vector3 {
-        return /*Vector3(*/lhs * rhs.matrix/*)*/
+        return Vector3(vector_double3(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix3x3, rhs: Double) -> Matrix3x3 {
@@ -1155,6 +1366,30 @@ extension Matrix3x3 { // Equatable
     }
 }
 
+extension Matrix3x3 : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x, matrix.columns.2.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y, matrix.columns.2.y])
+        try container.encode([matrix.columns.0.z, matrix.columns.1.z, matrix.columns.2.z])
+    }
+}
+
+extension Matrix3x3 : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector3.self)
+        let row1 = try container.decode(Vector3.self)
+        let row2 = try container.decode(Vector3.self)
+
+        self.init(matrix_double3x3(
+            [row0.x, row1.x, row2.x],
+            [row0.y, row1.y, row2.y],
+            [row0.z, row1.z, row2.z]
+        ))
+    }
+}
+
 extension Matrix3x3 : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector3...) {
         precondition(elements.count == 3)
@@ -1166,6 +1401,7 @@ extension Matrix3x3 : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -1222,11 +1458,11 @@ extension Matrix3x4f : Matrix {
     }
 
     public static func *(lhs: Matrix3x4f, rhs: Vector4f) -> Vector3f {
-        return /*Vector3f(*/lhs.matrix * rhs/*)*/
+        return Vector3f(lhs.matrix * vector_float4(rhs))
     }
 
     public static func *(lhs: Vector3f, rhs: Matrix3x4f) -> Vector4f {
-        return /*Vector4f(*/lhs * rhs.matrix/*)*/
+        return Vector4f(vector_float3(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix3x4f, rhs: Float) -> Matrix3x4f {
@@ -1268,6 +1504,31 @@ extension Matrix3x4f { // Equatable
     }
 }
 
+extension Matrix3x4f : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x, matrix.columns.2.x, matrix.columns.3.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y, matrix.columns.2.y, matrix.columns.3.y])
+        try container.encode([matrix.columns.0.z, matrix.columns.1.z, matrix.columns.2.z, matrix.columns.3.z])
+    }
+}
+
+extension Matrix3x4f : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector4f.self)
+        let row1 = try container.decode(Vector4f.self)
+        let row2 = try container.decode(Vector4f.self)
+
+        self.init(matrix_float4x3(
+            [row0.x, row1.x, row2.x],
+            [row0.y, row1.y, row2.y],
+            [row0.z, row1.z, row2.z],
+            [row0.w, row1.w, row2.w]
+        ))
+    }
+}
+
 extension Matrix3x4f : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector4f...) {
         precondition(elements.count == 3)
@@ -1280,6 +1541,7 @@ extension Matrix3x4f : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -1336,11 +1598,11 @@ extension Matrix3x4 : Matrix {
     }
 
     public static func *(lhs: Matrix3x4, rhs: Vector4) -> Vector3 {
-        return /*Vector3(*/lhs.matrix * rhs/*)*/
+        return Vector3(lhs.matrix * vector_double4(rhs))
     }
 
     public static func *(lhs: Vector3, rhs: Matrix3x4) -> Vector4 {
-        return /*Vector4(*/lhs * rhs.matrix/*)*/
+        return Vector4(vector_double3(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix3x4, rhs: Double) -> Matrix3x4 {
@@ -1382,6 +1644,31 @@ extension Matrix3x4 { // Equatable
     }
 }
 
+extension Matrix3x4 : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x, matrix.columns.2.x, matrix.columns.3.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y, matrix.columns.2.y, matrix.columns.3.y])
+        try container.encode([matrix.columns.0.z, matrix.columns.1.z, matrix.columns.2.z, matrix.columns.3.z])
+    }
+}
+
+extension Matrix3x4 : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector4.self)
+        let row1 = try container.decode(Vector4.self)
+        let row2 = try container.decode(Vector4.self)
+
+        self.init(matrix_double4x3(
+            [row0.x, row1.x, row2.x],
+            [row0.y, row1.y, row2.y],
+            [row0.z, row1.z, row2.z],
+            [row0.w, row1.w, row2.w]
+        ))
+    }
+}
+
 extension Matrix3x4 : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector4...) {
         precondition(elements.count == 3)
@@ -1394,6 +1681,7 @@ extension Matrix3x4 : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -1450,11 +1738,11 @@ extension Matrix4x2f : Matrix {
     }
 
     public static func *(lhs: Matrix4x2f, rhs: Vector2f) -> Vector4f {
-        return /*Vector4f(*/lhs.matrix * rhs/*)*/
+        return Vector4f(lhs.matrix * vector_float2(rhs))
     }
 
     public static func *(lhs: Vector4f, rhs: Matrix4x2f) -> Vector2f {
-        return /*Vector2f(*/lhs * rhs.matrix/*)*/
+        return Vector2f(vector_float4(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix4x2f, rhs: Float) -> Matrix4x2f {
@@ -1498,6 +1786,31 @@ extension Matrix4x2f { // Equatable
     }
 }
 
+extension Matrix4x2f : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y])
+        try container.encode([matrix.columns.0.z, matrix.columns.1.z])
+        try container.encode([matrix.columns.0.w, matrix.columns.1.w])
+    }
+}
+
+extension Matrix4x2f : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector2f.self)
+        let row1 = try container.decode(Vector2f.self)
+        let row2 = try container.decode(Vector2f.self)
+        let row3 = try container.decode(Vector2f.self)
+
+        self.init(matrix_float2x4(
+            [row0.x, row1.x, row2.x, row3.x],
+            [row0.y, row1.y, row2.y, row3.y]
+        ))
+    }
+}
+
 extension Matrix4x2f : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector2f...) {
         precondition(elements.count == 4)
@@ -1508,6 +1821,7 @@ extension Matrix4x2f : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -1564,11 +1878,11 @@ extension Matrix4x2 : Matrix {
     }
 
     public static func *(lhs: Matrix4x2, rhs: Vector2) -> Vector4 {
-        return /*Vector4(*/lhs.matrix * rhs/*)*/
+        return Vector4(lhs.matrix * vector_double2(rhs))
     }
 
     public static func *(lhs: Vector4, rhs: Matrix4x2) -> Vector2 {
-        return /*Vector2(*/lhs * rhs.matrix/*)*/
+        return Vector2(vector_double4(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix4x2, rhs: Double) -> Matrix4x2 {
@@ -1612,6 +1926,31 @@ extension Matrix4x2 { // Equatable
     }
 }
 
+extension Matrix4x2 : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y])
+        try container.encode([matrix.columns.0.z, matrix.columns.1.z])
+        try container.encode([matrix.columns.0.w, matrix.columns.1.w])
+    }
+}
+
+extension Matrix4x2 : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector2.self)
+        let row1 = try container.decode(Vector2.self)
+        let row2 = try container.decode(Vector2.self)
+        let row3 = try container.decode(Vector2.self)
+
+        self.init(matrix_double2x4(
+            [row0.x, row1.x, row2.x, row3.x],
+            [row0.y, row1.y, row2.y, row3.y]
+        ))
+    }
+}
+
 extension Matrix4x2 : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector2...) {
         precondition(elements.count == 4)
@@ -1622,6 +1961,7 @@ extension Matrix4x2 : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -1678,11 +2018,11 @@ extension Matrix4x3f : Matrix {
     }
 
     public static func *(lhs: Matrix4x3f, rhs: Vector3f) -> Vector4f {
-        return /*Vector4f(*/lhs.matrix * rhs/*)*/
+        return Vector4f(lhs.matrix * vector_float3(rhs))
     }
 
     public static func *(lhs: Vector4f, rhs: Matrix4x3f) -> Vector3f {
-        return /*Vector3f(*/lhs * rhs.matrix/*)*/
+        return Vector3f(vector_float4(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix4x3f, rhs: Float) -> Matrix4x3f {
@@ -1726,6 +2066,32 @@ extension Matrix4x3f { // Equatable
     }
 }
 
+extension Matrix4x3f : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x, matrix.columns.2.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y, matrix.columns.2.y])
+        try container.encode([matrix.columns.0.z, matrix.columns.1.z, matrix.columns.2.z])
+        try container.encode([matrix.columns.0.w, matrix.columns.1.w, matrix.columns.2.w])
+    }
+}
+
+extension Matrix4x3f : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector3f.self)
+        let row1 = try container.decode(Vector3f.self)
+        let row2 = try container.decode(Vector3f.self)
+        let row3 = try container.decode(Vector3f.self)
+
+        self.init(matrix_float3x4(
+            [row0.x, row1.x, row2.x, row3.x],
+            [row0.y, row1.y, row2.y, row3.y],
+            [row0.z, row1.z, row2.z, row3.z]
+        ))
+    }
+}
+
 extension Matrix4x3f : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector3f...) {
         precondition(elements.count == 4)
@@ -1737,6 +2103,7 @@ extension Matrix4x3f : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -1793,11 +2160,11 @@ extension Matrix4x3 : Matrix {
     }
 
     public static func *(lhs: Matrix4x3, rhs: Vector3) -> Vector4 {
-        return /*Vector4(*/lhs.matrix * rhs/*)*/
+        return Vector4(lhs.matrix * vector_double3(rhs))
     }
 
     public static func *(lhs: Vector4, rhs: Matrix4x3) -> Vector3 {
-        return /*Vector3(*/lhs * rhs.matrix/*)*/
+        return Vector3(vector_double4(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix4x3, rhs: Double) -> Matrix4x3 {
@@ -1841,6 +2208,32 @@ extension Matrix4x3 { // Equatable
     }
 }
 
+extension Matrix4x3 : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x, matrix.columns.2.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y, matrix.columns.2.y])
+        try container.encode([matrix.columns.0.z, matrix.columns.1.z, matrix.columns.2.z])
+        try container.encode([matrix.columns.0.w, matrix.columns.1.w, matrix.columns.2.w])
+    }
+}
+
+extension Matrix4x3 : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector3.self)
+        let row1 = try container.decode(Vector3.self)
+        let row2 = try container.decode(Vector3.self)
+        let row3 = try container.decode(Vector3.self)
+
+        self.init(matrix_double3x4(
+            [row0.x, row1.x, row2.x, row3.x],
+            [row0.y, row1.y, row2.y, row3.y],
+            [row0.z, row1.z, row2.z, row3.z]
+        ))
+    }
+}
+
 extension Matrix4x3 : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector3...) {
         precondition(elements.count == 4)
@@ -1852,6 +2245,7 @@ extension Matrix4x3 : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -1908,11 +2302,11 @@ extension Matrix4x4f : SquareMatrix {
     }
 
     public static func *(lhs: Matrix4x4f, rhs: Vector4f) -> Vector4f {
-        return /*Vector4f(*/lhs.matrix * rhs/*)*/
+        return Vector4f(lhs.matrix * vector_float4(rhs))
     }
 
     public static func *(lhs: Vector4f, rhs: Matrix4x4f) -> Vector4f {
-        return /*Vector4f(*/lhs * rhs.matrix/*)*/
+        return Vector4f(vector_float4(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix4x4f, rhs: Float) -> Matrix4x4f {
@@ -1968,6 +2362,33 @@ extension Matrix4x4f { // Equatable
     }
 }
 
+extension Matrix4x4f : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x, matrix.columns.2.x, matrix.columns.3.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y, matrix.columns.2.y, matrix.columns.3.y])
+        try container.encode([matrix.columns.0.z, matrix.columns.1.z, matrix.columns.2.z, matrix.columns.3.z])
+        try container.encode([matrix.columns.0.w, matrix.columns.1.w, matrix.columns.2.w, matrix.columns.3.w])
+    }
+}
+
+extension Matrix4x4f : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector4f.self)
+        let row1 = try container.decode(Vector4f.self)
+        let row2 = try container.decode(Vector4f.self)
+        let row3 = try container.decode(Vector4f.self)
+
+        self.init(matrix_float4x4(
+            [row0.x, row1.x, row2.x, row3.x],
+            [row0.y, row1.y, row2.y, row3.y],
+            [row0.z, row1.z, row2.z, row3.z],
+            [row0.w, row1.w, row2.w, row3.w]
+        ))
+    }
+}
+
 extension Matrix4x4f : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector4f...) {
         precondition(elements.count == 4)
@@ -1980,6 +2401,7 @@ extension Matrix4x4f : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif
 
 #if canImport(simd)
@@ -2036,11 +2458,11 @@ extension Matrix4x4 : SquareMatrix {
     }
 
     public static func *(lhs: Matrix4x4, rhs: Vector4) -> Vector4 {
-        return /*Vector4(*/lhs.matrix * rhs/*)*/
+        return Vector4(lhs.matrix * vector_double4(rhs))
     }
 
     public static func *(lhs: Vector4, rhs: Matrix4x4) -> Vector4 {
-        return /*Vector4(*/lhs * rhs.matrix/*)*/
+        return Vector4(vector_double4(lhs) * rhs.matrix)
     }
 
     public static func /(lhs: Matrix4x4, rhs: Double) -> Matrix4x4 {
@@ -2096,6 +2518,33 @@ extension Matrix4x4 { // Equatable
     }
 }
 
+extension Matrix4x4 : Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode([matrix.columns.0.x, matrix.columns.1.x, matrix.columns.2.x, matrix.columns.3.x])
+        try container.encode([matrix.columns.0.y, matrix.columns.1.y, matrix.columns.2.y, matrix.columns.3.y])
+        try container.encode([matrix.columns.0.z, matrix.columns.1.z, matrix.columns.2.z, matrix.columns.3.z])
+        try container.encode([matrix.columns.0.w, matrix.columns.1.w, matrix.columns.2.w, matrix.columns.3.w])
+    }
+}
+
+extension Matrix4x4 : Decodable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let row0 = try container.decode(Vector4.self)
+        let row1 = try container.decode(Vector4.self)
+        let row2 = try container.decode(Vector4.self)
+        let row3 = try container.decode(Vector4.self)
+
+        self.init(matrix_double4x4(
+            [row0.x, row1.x, row2.x, row3.x],
+            [row0.y, row1.y, row2.y, row3.y],
+            [row0.z, row1.z, row2.z, row3.z],
+            [row0.w, row1.w, row2.w, row3.w]
+        ))
+    }
+}
+
 extension Matrix4x4 : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector4...) {
         precondition(elements.count == 4)
@@ -2108,4 +2557,5 @@ extension Matrix4x4 : ExpressibleByArrayLiteral {
         ))
     }
 }
+
 #endif

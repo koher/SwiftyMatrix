@@ -5,9 +5,9 @@
         "package": "SwiftyVector",
         "repositoryURL": "https://github.com/koher/SwiftyVector.git",
         "state": {
-          "branch": null,
-          "revision": "1100755929327a3a5f99388f3d23f1c540ea5b1c",
-          "version": "0.3.1"
+          "branch": "dev-0.4.0",
+          "revision": "2c2b14ed9b23eaf4fad022f76b20c8cf06c81534",
+          "version": null
         }
       }
     ]

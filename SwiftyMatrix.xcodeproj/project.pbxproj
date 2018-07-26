@@ -13,7 +13,6 @@
 		D6E94EE120888FA30095B023 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EDA20888FA20095B023 /* Utils.swift */; };
 		D6E94EE220888FA30095B023 /* ConcreteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EDB20888FA20095B023 /* ConcreteTests.swift */; };
 		D6E94EE420888FA30095B023 /* TransformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EDD20888FA20095B023 /* TransformTests.swift */; };
-		D6E94EE520888FD00095B023 /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC420888F830095B023 /* CoreGraphics.swift */; };
 		D6E94EE620888FD00095B023 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC520888F830095B023 /* Transform.swift */; };
 		D6E94EE720888FD00095B023 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC620888F830095B023 /* Matrix.swift */; };
 		D6E94EE820888FD00095B023 /* Concrete.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC720888F830095B023 /* Concrete.swift */; };
@@ -21,17 +20,14 @@
 		D6E94EEA20888FD00095B023 /* SwiftyMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = D6E94ECA20888F830095B023 /* SwiftyMatrix.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6E94EFC208893770095B023 /* SwiftyMatrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E94EF3208893760095B023 /* SwiftyMatrix.framework */; };
 		D6E94F18208893B70095B023 /* SwiftyMatrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E94F0F208893B70095B023 /* SwiftyMatrix.framework */; };
-		D6E94F33208895490095B023 /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC420888F830095B023 /* CoreGraphics.swift */; };
 		D6E94F34208895490095B023 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC520888F830095B023 /* Transform.swift */; };
 		D6E94F35208895490095B023 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC620888F830095B023 /* Matrix.swift */; };
 		D6E94F36208895490095B023 /* Concrete.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC720888F830095B023 /* Concrete.swift */; };
 		D6E94F37208895490095B023 /* SquareMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC920888F830095B023 /* SquareMatrix.swift */; };
-		D6E94F382088954A0095B023 /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC420888F830095B023 /* CoreGraphics.swift */; };
 		D6E94F392088954A0095B023 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC520888F830095B023 /* Transform.swift */; };
 		D6E94F3A2088954A0095B023 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC620888F830095B023 /* Matrix.swift */; };
 		D6E94F3B2088954A0095B023 /* Concrete.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC720888F830095B023 /* Concrete.swift */; };
 		D6E94F3C2088954A0095B023 /* SquareMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC920888F830095B023 /* SquareMatrix.swift */; };
-		D6E94F3D2088954B0095B023 /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC420888F830095B023 /* CoreGraphics.swift */; };
 		D6E94F3E2088954B0095B023 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC520888F830095B023 /* Transform.swift */; };
 		D6E94F3F2088954B0095B023 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC620888F830095B023 /* Matrix.swift */; };
 		D6E94F402088954B0095B023 /* Concrete.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E94EC720888F830095B023 /* Concrete.swift */; };
@@ -85,7 +81,6 @@
 /* Begin PBXFileReference section */
 		D6E94EA720888EB00095B023 /* SwiftyMatrix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyMatrix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6E94EB020888EB00095B023 /* SwiftyMatrixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyMatrixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6E94EC420888F830095B023 /* CoreGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreGraphics.swift; sourceTree = "<group>"; };
 		D6E94EC520888F830095B023 /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		D6E94EC620888F830095B023 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		D6E94EC720888F830095B023 /* Concrete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Concrete.swift; sourceTree = "<group>"; };
@@ -210,7 +205,6 @@
 		D6E94EC220888F830095B023 /* SwiftyMatrix */ = {
 			isa = PBXGroup;
 			children = (
-				D6E94EC420888F830095B023 /* CoreGraphics.swift */,
 				D6E94EC520888F830095B023 /* Transform.swift */,
 				D6E94EC620888F830095B023 /* Matrix.swift */,
 				D6E94EC720888F830095B023 /* Concrete.swift */,
@@ -522,7 +516,6 @@
 				D6E94EE920888FD00095B023 /* SquareMatrix.swift in Sources */,
 				D6E94EE820888FD00095B023 /* Concrete.swift in Sources */,
 				D6E94EE620888FD00095B023 /* Transform.swift in Sources */,
-				D6E94EE520888FD00095B023 /* CoreGraphics.swift in Sources */,
 				D6E94EE720888FD00095B023 /* Matrix.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,7 +539,6 @@
 				D6E94F37208895490095B023 /* SquareMatrix.swift in Sources */,
 				D6E94F36208895490095B023 /* Concrete.swift in Sources */,
 				D6E94F34208895490095B023 /* Transform.swift in Sources */,
-				D6E94F33208895490095B023 /* CoreGraphics.swift in Sources */,
 				D6E94F35208895490095B023 /* Matrix.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,7 +562,6 @@
 				D6E94F3C2088954A0095B023 /* SquareMatrix.swift in Sources */,
 				D6E94F3B2088954A0095B023 /* Concrete.swift in Sources */,
 				D6E94F392088954A0095B023 /* Transform.swift in Sources */,
-				D6E94F382088954A0095B023 /* CoreGraphics.swift in Sources */,
 				D6E94F3A2088954A0095B023 /* Matrix.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,7 +585,6 @@
 				D6E94F412088954B0095B023 /* SquareMatrix.swift in Sources */,
 				D6E94F402088954B0095B023 /* Concrete.swift in Sources */,
 				D6E94F3E2088954B0095B023 /* Transform.swift in Sources */,
-				D6E94F3D2088954B0095B023 /* CoreGraphics.swift in Sources */,
 				D6E94F3F2088954B0095B023 /* Matrix.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

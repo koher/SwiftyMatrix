@@ -33,7 +33,19 @@ import SwiftyVector
 %       simd_identity_prefix = scalar_type_to_simd_identity_prefix[scalar_type]
 
 #if canImport(simd)
-public typealias Matrix${num_rows}x${num_cols}${symbol} = ${simd_type_prefix}${num_cols}x${num_rows}
+public struct Matrix${num_rows}x${num_cols}${symbol} {
+    fileprivate var matrix: ${simd_type_prefix}${num_cols}x${num_rows}
+
+    public init(_ matrix: ${simd_type_prefix}${num_cols}x${num_rows}) {
+        self.matrix = matrix
+    }
+}
+
+extension ${simd_type_prefix}${num_cols}x${num_rows} {
+    init(_ matrix: Matrix${num_rows}x${num_cols}${symbol}) {
+        self = matrix.matrix
+    }
+}
 
 extension Matrix${num_rows}x${num_cols}${symbol} : ${matrix_type} {
     public typealias Scalar = ${scalar_type}
@@ -48,9 +60,37 @@ extension Matrix${num_rows}x${num_cols}${symbol} : ${matrix_type} {
     public var columnCount: Int {
         return ${num_cols}
     }
+    
+    public var transpose: Matrix${num_cols}x${num_rows}${symbol} {
+        return Matrix${num_cols}x${num_rows}${symbol}(matrix.transpose)
+    }
 
     public static var zero: Matrix${num_rows}x${num_cols}${symbol} {
-        return ${simd_type_prefix}${num_cols}x${num_rows}()
+        return Matrix${num_rows}x${num_cols}${symbol}(${simd_type_prefix}${num_cols}x${num_rows}())
+    }
+
+    public static func +(lhs: Matrix${num_rows}x${num_cols}${symbol}, rhs: Matrix${num_rows}x${num_cols}${symbol}) -> Matrix${num_rows}x${num_cols}${symbol} {
+        return Matrix${num_rows}x${num_cols}${symbol}(lhs.matrix + rhs.matrix)
+    }
+
+    public static func -(lhs: Matrix${num_rows}x${num_cols}${symbol}, rhs: Matrix${num_rows}x${num_cols}${symbol}) -> Matrix${num_rows}x${num_cols}${symbol} {
+        return Matrix${num_rows}x${num_cols}${symbol}(lhs.matrix - rhs.matrix)
+    }
+
+    public static func *(lhs: Matrix${num_rows}x${num_cols}${symbol}, rhs: ${scalar_type}) -> Matrix${num_rows}x${num_cols}${symbol} {
+        return Matrix${num_rows}x${num_cols}${symbol}(lhs.matrix * rhs)
+    }
+
+    public static func *(lhs: ${scalar_type}, rhs: Matrix${num_rows}x${num_cols}${symbol}) -> Matrix${num_rows}x${num_cols}${symbol} {
+        return Matrix${num_rows}x${num_cols}${symbol}(lhs * rhs.matrix)
+    }
+
+    public static func *(lhs: Matrix${num_rows}x${num_cols}${symbol}, rhs: Vector${num_cols}${symbol}) -> Vector${num_rows}${symbol} {
+        return /*Vector${num_rows}${symbol}(*/lhs.matrix * rhs/*)*/
+    }
+
+    public static func *(lhs: Vector${num_rows}${symbol}, rhs: Matrix${num_rows}x${num_cols}${symbol}) -> Vector${num_cols}${symbol} {
+        return /*Vector${num_cols}${symbol}(*/lhs * rhs.matrix/*)*/
     }
 
     public static func /(lhs: Matrix${num_rows}x${num_cols}${symbol}, rhs: ${scalar_type}) -> Matrix${num_rows}x${num_cols}${symbol} {
@@ -66,8 +106,16 @@ extension Matrix${num_rows}x${num_cols}${symbol} : ${matrix_type} {
     }
 %       if matrix_type == 'SquareMatrix':
 
+    public static func *(lhs: Matrix${num_rows}x${num_cols}${symbol}, rhs: Matrix${num_rows}x${num_cols}${symbol}) -> Matrix${num_rows}x${num_cols}${symbol} {
+        return Matrix${num_rows}x${num_cols}${symbol}(lhs.matrix * rhs.matrix)
+    }
+
+    public var inverse: Matrix${num_rows}x${num_cols}${symbol} {
+        return Matrix${num_rows}x${num_cols}${symbol}(matrix.inverse)
+    }
+
     public static var identity: Matrix${num_rows}x${num_cols}${symbol} {
-        return ${simd_identity_prefix}${num_rows}x${num_cols}
+        return Matrix${num_rows}x${num_cols}${symbol}(${simd_identity_prefix}${num_rows}x${num_cols})
     }
 %       end
 
@@ -75,7 +123,7 @@ extension Matrix${num_rows}x${num_cols}${symbol} : ${matrix_type} {
         return """
         [
 %       for row in dimension_to_rows[num_rows]:
-            [${', '.join([f'\(columns.{column}.{row}.description)' for column in dimension_to_columns[num_cols]])}],
+            [${', '.join([f'\(matrix.columns.{column}.{row}.description)' for column in dimension_to_columns[num_cols]])}],
 %       end
         ]
         """
@@ -85,10 +133,16 @@ extension Matrix${num_rows}x${num_cols}${symbol} : ${matrix_type} {
         return """
         [
 %       for row in dimension_to_rows[num_rows]:
-            [${', '.join([f'\(columns.{column}.{row}.debugDescription)' for column in dimension_to_columns[num_cols]])}],
+            [${', '.join([f'\(matrix.columns.{column}.{row}.debugDescription)' for column in dimension_to_columns[num_cols]])}],
 %       end
         ]
         """
+    }
+}
+
+extension Matrix${num_rows}x${num_cols}${symbol} { // Equatable
+    public static func ==(lhs: Matrix${num_rows}x${num_cols}${symbol}, rhs: Matrix${num_rows}x${num_cols}${symbol}) -> Bool {
+        return lhs.matrix == rhs.matrix
     }
 }
 
@@ -96,12 +150,12 @@ extension Matrix${num_rows}x${num_cols}${symbol} : ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: Vector${num_cols}${symbol}...) {
         precondition(elements.count == ${num_rows})
         
-        self.init(
+        self.init(${simd_type_prefix}${num_cols}x${num_rows}(
 %       for i, column in enumerate(dimension_to_rows[num_cols]):
 %         is_last = i == int(num_cols) - 1
             [${', '.join([f'elements[{row}].{column}' for row in dimension_to_columns[num_rows]])}]${'' if is_last else ','}
 %       end
-        )
+        ))
     }
 }
 #endif

@@ -1,10 +1,8 @@
 import SwiftyVector
 
 #if canImport(simd)
-@_exported import simd
-#endif
+import simd
 
-#if canImport(simd)
 public struct Matrix2x2f {
     fileprivate var matrix: matrix_float2x2
 
@@ -146,9 +144,7 @@ extension Matrix2x2f : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix2x2 {
     fileprivate var matrix: matrix_double2x2
 
@@ -290,9 +286,7 @@ extension Matrix2x2 : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix2x3f {
     fileprivate var matrix: matrix_float3x2
 
@@ -424,9 +418,7 @@ extension Matrix2x3f : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix2x3 {
     fileprivate var matrix: matrix_double3x2
 
@@ -558,9 +550,7 @@ extension Matrix2x3 : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix2x4f {
     fileprivate var matrix: matrix_float4x2
 
@@ -694,9 +684,7 @@ extension Matrix2x4f : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix2x4 {
     fileprivate var matrix: matrix_double4x2
 
@@ -830,9 +818,7 @@ extension Matrix2x4 : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix3x2f {
     fileprivate var matrix: matrix_float2x3
 
@@ -966,9 +952,7 @@ extension Matrix3x2f : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix3x2 {
     fileprivate var matrix: matrix_double2x3
 
@@ -1102,9 +1086,7 @@ extension Matrix3x2 : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix3x3f {
     fileprivate var matrix: matrix_float3x3
 
@@ -1252,9 +1234,7 @@ extension Matrix3x3f : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix3x3 {
     fileprivate var matrix: matrix_double3x3
 
@@ -1402,9 +1382,7 @@ extension Matrix3x3 : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix3x4f {
     fileprivate var matrix: matrix_float4x3
 
@@ -1542,9 +1520,7 @@ extension Matrix3x4f : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix3x4 {
     fileprivate var matrix: matrix_double4x3
 
@@ -1682,9 +1658,7 @@ extension Matrix3x4 : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix4x2f {
     fileprivate var matrix: matrix_float2x4
 
@@ -1822,9 +1796,7 @@ extension Matrix4x2f : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix4x2 {
     fileprivate var matrix: matrix_double2x4
 
@@ -1962,9 +1934,7 @@ extension Matrix4x2 : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix4x3f {
     fileprivate var matrix: matrix_float3x4
 
@@ -2104,9 +2074,7 @@ extension Matrix4x3f : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix4x3 {
     fileprivate var matrix: matrix_double3x4
 
@@ -2246,9 +2214,7 @@ extension Matrix4x3 : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix4x4f {
     fileprivate var matrix: matrix_float4x4
 
@@ -2402,9 +2368,7 @@ extension Matrix4x4f : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 
-#if canImport(simd)
 public struct Matrix4x4 {
     fileprivate var matrix: matrix_double4x4
 
@@ -2556,6 +2520,103 @@ extension Matrix4x4 : ExpressibleByArrayLiteral {
             [elements[0].w, elements[1].w, elements[2].w, elements[3].w]
         ))
     }
+}
+
+
+public func *(lhs: Matrix2x3, rhs: Matrix3x2) -> Matrix2x2 {
+        return Matrix2x2(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix2x4, rhs: Matrix4x2) -> Matrix2x2 {
+        return Matrix2x2(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix2x2, rhs: Matrix2x3) -> Matrix2x3 {
+        return Matrix2x3(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix2x3, rhs: Matrix3x3) -> Matrix2x3 {
+        return Matrix2x3(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix2x4, rhs: Matrix4x3) -> Matrix2x3 {
+        return Matrix2x3(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix2x2, rhs: Matrix2x4) -> Matrix2x4 {
+        return Matrix2x4(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix2x3, rhs: Matrix3x4) -> Matrix2x4 {
+        return Matrix2x4(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix2x4, rhs: Matrix4x4) -> Matrix2x4 {
+        return Matrix2x4(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix3x2, rhs: Matrix2x2) -> Matrix3x2 {
+        return Matrix3x2(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix3x3, rhs: Matrix3x2) -> Matrix3x2 {
+        return Matrix3x2(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix3x4, rhs: Matrix4x2) -> Matrix3x2 {
+        return Matrix3x2(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix3x2, rhs: Matrix2x3) -> Matrix3x3 {
+        return Matrix3x3(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix3x4, rhs: Matrix4x3) -> Matrix3x3 {
+        return Matrix3x3(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix3x2, rhs: Matrix2x4) -> Matrix3x4 {
+        return Matrix3x4(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix3x3, rhs: Matrix3x4) -> Matrix3x4 {
+        return Matrix3x4(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix3x4, rhs: Matrix4x4) -> Matrix3x4 {
+        return Matrix3x4(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix4x2, rhs: Matrix2x2) -> Matrix4x2 {
+        return Matrix4x2(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix4x3, rhs: Matrix3x2) -> Matrix4x2 {
+        return Matrix4x2(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix4x4, rhs: Matrix4x2) -> Matrix4x2 {
+        return Matrix4x2(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix4x2, rhs: Matrix2x3) -> Matrix4x3 {
+        return Matrix4x3(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix4x3, rhs: Matrix3x3) -> Matrix4x3 {
+        return Matrix4x3(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix4x4, rhs: Matrix4x3) -> Matrix4x3 {
+        return Matrix4x3(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix4x2, rhs: Matrix2x4) -> Matrix4x4 {
+        return Matrix4x4(lhs.matrix * rhs.matrix)
+}
+
+public func *(lhs: Matrix4x3, rhs: Matrix3x4) -> Matrix4x4 {
+        return Matrix4x4(lhs.matrix * rhs.matrix)
 }
 
 #endif

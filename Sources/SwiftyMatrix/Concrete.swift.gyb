@@ -18,8 +18,7 @@
 import SwiftyVector
 
 #if canImport(simd)
-@_exported import simd
-#endif
+import simd
 %
 % for num_rows in dimensions:
 %   for num_cols in dimensions:
@@ -34,7 +33,6 @@ import SwiftyVector
 %       simd_identity_prefix = scalar_type_to_simd_identity_prefix[scalar_type]
 %       simd_vector_type_prefix = scalar_type_to_simd_vector_prefix[scalar_type]
 
-#if canImport(simd)
 public struct Matrix${num_rows}x${num_cols}${symbol} {
     fileprivate var matrix: ${simd_type_prefix}${num_cols}x${num_rows}
 
@@ -186,7 +184,21 @@ extension Matrix${num_rows}x${num_cols}${symbol} : ExpressibleByArrayLiteral {
     }
 }
 
-#endif
 %     end
 %   end
 % end
+%
+% for out_rows in dimensions:
+%   for out_cols in dimensions:
+%     for rows_cols in dimensions:
+%       if out_rows != out_cols or out_rows != rows_cols or out_cols != rows_cols:
+
+public func *(lhs: Matrix${out_rows}x${rows_cols}${symbol}, rhs: Matrix${rows_cols}x${out_cols}${symbol}) -> Matrix${out_rows}x${out_cols}${symbol} {
+        return Matrix${out_rows}x${out_cols}${symbol}(lhs.matrix * rhs.matrix)
+}
+%       end
+%     end
+%   end
+% end
+
+#endif
